@@ -1,6 +1,7 @@
 
 import { Component } from 'react';
 import './App.css';
+import Withdarw from './componets/WithDarw/Withdarw';
 import TodoList from './componets/TodoList/TodoList';
 import SearchDestinication from './componets/SearchDestination/SearchDestinication';
 import RandomNumber from './componets/RandomNumber/RandomNumber';
@@ -37,37 +38,37 @@ import Welcome from './componets/Welcome/Welcome';
 //     name: 'Nagender Miles',
 //     role: 'Software Developer'
 //   }]
-const toDoList =[{
- id: 1,
-  "title": "Complete React JS Tutorial",
+// const toDoList =[{
+//  id: 1,
+//   "title": "Complete React JS Tutorial",
   
-},
-  {
-   id: 2,
-    "title": "Complete React JS Tutorial Part 2",
-  },
-  {
-   id: 3,
-    "title": "Complete React JS Tutorial Part 3",
-  },
-  {
-   id: 4,
-    "title": "Complete React JS Tutorial Part 4",
-  },
-  {
-   id: 5,
-    "title": "Complete React JS Tutorial Part 5",
-  },
-  {
-   id: 6,
-    "title": "Complete React JS Tutorial Part 6",
-  }
-]
+// },
+//   {
+//    id: 2,
+//     "title": "Complete React JS Tutorial Part 2",
+//   },
+//   {
+//    id: 3,
+//     "title": "Complete React JS Tutorial Part 3",
+//   },
+//   {
+//    id: 4,
+//     "title": "Complete React JS Tutorial Part 4",
+//   },
+//   {
+//    id: 5,
+//     "title": "Complete React JS Tutorial Part 5",
+//   },
+//   {
+//    id: 6,
+//     "title": "Complete React JS Tutorial Part 6",
+//   }
+// ]
 class App extends Component{
-  state ={
-    toDoList: toDoList,
+  // state ={
+  //   toDoList: toDoList,
 
-  }
+  // }
   // rendrCondition=()=>{
   //   const {isLoooged}=this.state;
   //   if(isLoooged === true){
@@ -80,15 +81,15 @@ class App extends Component{
   //     "searchInput": event.target.value,
   //   })
   // }
-  deleteUser=(id)=>{
-    console.log(`user is deleted the ${id}`)
+  // deleteUser=(id)=>{
+  //   console.log(`user is deleted the ${id}`)
     
-    const updatedList=this.state.toDoList.filter(eachItem => eachItem.id!== id)
-    this.setState({
-      toDoList: updatedList,
-    })
+  //   const updatedList=this.state.toDoList.filter(eachItem => eachItem.id!== id)
+  //   this.setState({
+  //     toDoList: updatedList,
+  //   })
 
-  }
+  // }
   render() {
     // const {isLoooged}=this.state;
     // let autho;
@@ -108,22 +109,22 @@ class App extends Component{
          {/* <EvenOdd /> */}
          {/* <LoginLogin /> */}
           {/* <RandomNumber /> */}
-
+          <Withdarw />
 
          {/* {this.rendrCondition()}
           */}
           {/* {isLoooged && <button>Logout</button>}
           {!isLoooged && <button>Loggoin</button>} */}
           {/* <SpeedoMeter /> */}
-          <div className="list-container">
+          {/* <div className="list-container">
               <h1 className="title">Wel come to the todolist</h1>
-              {/* <input type='search' onChange={this.onSerachChange}/> */}
+              <input type='search' onChange={this.onSerachChange}/>
               <ul>
                 {this.state.toDoList.map((eachItem) => (
                   <TodoList toDoList={eachItem} key={eachItem.id} deleteUser={this.deleteUser}/>
                 ))}
               </ul>
-              </div>
+              </div> */}
       </div>
     ) 
   }
