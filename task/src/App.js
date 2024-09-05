@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import './App.css';
 import Withdarw from './componets/WithDarw/Withdarw';
-import LettersCalculator from './componets/LettersCalculator/LettersCalculator';
+import HistroyDdelete from './componets/HistroeDelete/HistroyDdelete';
 import GoogleSsearch from './componets/GoogleSearchSuugg/GoogleSsearch';
 import TodoList from './componets/TodoList/TodoList';
 import SearchDestinication from './componets/SearchDestination/SearchDestinication';
@@ -93,6 +93,49 @@ import Welcome from './componets/Welcome/Welcome';
 // ]
 
 
+const intialhistoyList=[{
+  id: 1,
+  title: 'React JS Tutorial Part 1',
+  date: '2022-01-01',
+  content: 'This is the first part of React JS tutorial'
+},
+  {
+    id: 2,
+    title: 'React JS Tutorial Part 2',
+    date: '2022-01-02',
+    content: 'This is the second part of React JS tutorial'
+  },
+  {
+    id: 3,
+    title: 'React JS Tutorial Part 3',
+    date: '2022-01-03',
+    content: 'This is the third part of React JS tutorial'
+  },
+  {
+    id: 4,
+    title: 'React JS Tutorial Part 4',
+    date: '2022-01-04',
+    content: 'This is the fourth part of React JS tutorial'
+  },
+  {
+    id: 5,
+    title: 'React JS Tutorial Part 5',
+    date: '2022-01-05',
+    content: 'This is the fifth part of React JS tutorial'
+  },{
+    id: 6,
+    title: 'React JS Tutorial Part 6',
+    date: '2022-01-06',
+    content: 'This is the sixth part of React JS tutorial'
+  }
+
+
+
+]
+
+
+
+
 
 
 
@@ -107,7 +150,7 @@ import Welcome from './componets/Welcome/Welcome';
 class App extends Component{
   state ={
     'searchState': ' ',
-    count: 0,
+     histoyList: intialhistoyList
   }
   // rendrCondition=()=>{
   //   const {isLoooged}=this.state;
@@ -117,23 +160,19 @@ class App extends Component{
   //   return <button>Loggoin</button>
   // }
   onSerachChange = (event)=>{
-    const inputVlaue=event.target.value;
+    
    this.setState({
-    
-    'searchState': inputVlaue,
-     count: inputVlaue.length,
+    'searchState': event.target.value,
    })
-   
-    console.log(this.state.searchState,this.state.count);
+    console.log(this.state.searchState);
   }
-  // updateWithArrow=(title)=>{
-  //   console.log(`user is arrowed the ${title}`)
-    
-  //   this.setState({
-  //     'searchState': title
-  //   });
-
-  // }
+  updateWithArrow=(id)=>{
+    console.log(`user is arrowed the ${id}`)
+     const updatedList=this.state.histoyList.filter(eachItem => eachItem.id!== id)
+    this.setState({
+      histoyList: updatedList,
+    })
+  }
   render() {
     // const {isLoooged}=this.state;
     // let autho;
@@ -142,8 +181,12 @@ class App extends Component{
     // }else{
     //   autho = <button>Login</button>
     // }
-    const {searchState,count} = this.state;
-   
+    const {searchState,histoyList} = this.state;
+    console.log(searchState);
+    const searchResult = histoyList.filter(eachItem =>eachItem.title.includes(searchState));
+    if(!histoyList){
+      console.log("NO logs are found")
+  }
       return (
       <div>
          {/* <Welcome /> */}
@@ -154,7 +197,7 @@ class App extends Component{
           {/* <RandomNumber /> */}
           {/* <Withdarw /> */}
           {/* < /> */}
-
+        
          {/* {this.rendrCondition()}
           */}
           {/* {isLoooged && <button>Logout</button>}
@@ -163,12 +206,20 @@ class App extends Component{
           <div className="list-container">
               <h1 className="title">Wel come to the Google List</h1>
               <input type='search' onChange={this.onSerachChange} />
-              <p>letters are count by: {count}</p>
-              {/* <ul>
-                {searchState.map((eachItem) => (
-                  <LettersCalculator searchState={eachItem} />
-                ))}
-              </ul> */}
+              <ul>
+                
+              {searchResult.length === 0 ? (
+                      <p>No history is found</p> // Display this if searchResult is empty
+                                        ) : (
+                        searchResult.map((eachItem) => (
+                          <HistroyDdelete 
+                            histoyList={eachItem} 
+                            key={eachItem.id} 
+                            updateWithArrow={this.updateWithArrow} 
+                          />
+    ))
+  )}
+              </ul>
               </div>
       </div>
     ) 
