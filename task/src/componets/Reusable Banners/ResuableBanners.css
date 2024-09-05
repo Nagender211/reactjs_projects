@@ -1,0 +1,163 @@
+/* Container for each banner */
+.first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align text to the left */
+    height: 40vh;
+    width: 30vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Header text inside the banner */
+.first h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a202c; /* Darker text color for contrast */
+    margin-bottom: 10px;
+}
+
+/* Description text inside the banner */
+.first p {
+    font-size: 16px;
+    color: #4a5568; /* Lighter text color for description */
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    background-color: #4299e1; /* Blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.btn:hover {
+    background-color: #2b6cb0; /* Darker blue on hover */
+}
+
+/* Hover effect for the banner */
+.first:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+/* Container for each banner */
+.sencond {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align text to the left */
+    height: 40vh;
+    width: 25vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Header text inside the banner */
+.sencond h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a202c; /* Darker text color for contrast */
+    margin-bottom: 10px;
+}
+
+/* Description text inside the banner */
+.sencond p {
+    font-size: 16px;
+    color: #4a5568; /* Lighter text color for description */
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    background-color: #4299e1; /* Blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.btn:hover {
+    background-color: #2b6cb0; /* Darker blue on hover */
+}
+
+/* Hover effect for the banner */
+.sencond:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+
+.thrid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 40vh;
+    width: 30vw;
+    border: 1px solid black;
+    background: firebrickss;
+    gap: 0rem;
+    height: 40vh;
+    width: 25vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.thrid h1{
+    align-items: center;
+    /* text-align: center; */
+    font-size: 40px;
+    /* font-weight: 100; */
+    margin-left: 20px;
+    /* padding: 10px; */
+    gap: 0rem;
+    
+}
+.thrid p{
+    font-size: 16px;
+    color: #4a5568;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+
+/* Adjustments for larger screens */
+@media (min-width: 768px) {
+    .first {
+        width: 25vw;
+    }
+
+    .first h1 {
+        font-size: 28px;
+    }
+
+    .first p {
+        font-size: 18px;
+    }
+}
