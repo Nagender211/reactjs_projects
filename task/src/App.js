@@ -1,6 +1,7 @@
 
 import { Component } from 'react';
 import './App.css';
+import DebuggCounter from './componets/DebuggCounter/DebuggCounter';
 import Withdarw from './componets/WithDarw/Withdarw';
 import HistroyDdelete from './componets/HistroeDelete/HistroyDdelete';
 import GoogleSsearch from './componets/GoogleSearchSuugg/GoogleSsearch';
@@ -93,45 +94,45 @@ import Welcome from './componets/Welcome/Welcome';
 // ]
 
 
-const intialhistoyList=[{
-  id: 1,
-  title: 'React JS Tutorial Part 1',
-  date: '2022-01-01',
-  content: 'This is the first part of React JS tutorial'
-},
-  {
-    id: 2,
-    title: 'React JS Tutorial Part 2',
-    date: '2022-01-02',
-    content: 'This is the second part of React JS tutorial'
-  },
-  {
-    id: 3,
-    title: 'React JS Tutorial Part 3',
-    date: '2022-01-03',
-    content: 'This is the third part of React JS tutorial'
-  },
-  {
-    id: 4,
-    title: 'React JS Tutorial Part 4',
-    date: '2022-01-04',
-    content: 'This is the fourth part of React JS tutorial'
-  },
-  {
-    id: 5,
-    title: 'React JS Tutorial Part 5',
-    date: '2022-01-05',
-    content: 'This is the fifth part of React JS tutorial'
-  },{
-    id: 6,
-    title: 'React JS Tutorial Part 6',
-    date: '2022-01-06',
-    content: 'This is the sixth part of React JS tutorial'
-  }
+// const intialhistoyList=[{
+//   id: 1,
+//   title: 'React JS Tutorial Part 1',
+//   date: '2022-01-01',
+//   content: 'This is the first part of React JS tutorial'
+// },
+//   {
+//     id: 2,
+//     title: 'React JS Tutorial Part 2',
+//     date: '2022-01-02',
+//     content: 'This is the second part of React JS tutorial'
+//   },
+//   {
+//     id: 3,
+//     title: 'React JS Tutorial Part 3',
+//     date: '2022-01-03',
+//     content: 'This is the third part of React JS tutorial'
+//   },
+//   {
+//     id: 4,
+//     title: 'React JS Tutorial Part 4',
+//     date: '2022-01-04',
+//     content: 'This is the fourth part of React JS tutorial'
+//   },
+//   {
+//     id: 5,
+//     title: 'React JS Tutorial Part 5',
+//     date: '2022-01-05',
+//     content: 'This is the fifth part of React JS tutorial'
+//   },{
+//     id: 6,
+//     title: 'React JS Tutorial Part 6',
+//     date: '2022-01-06',
+//     content: 'This is the sixth part of React JS tutorial'
+//   }
 
 
 
-]
+// ]
 
 
 
@@ -148,10 +149,10 @@ const intialhistoyList=[{
 
 
 class App extends Component{
-  state ={
-    'searchState': ' ',
-     histoyList: intialhistoyList
-  }
+  // state ={
+  //   'searchState': ' ',
+  //    histoyList: intialhistoyList
+  // }
   // rendrCondition=()=>{
   //   const {isLoooged}=this.state;
   //   if(isLoooged === true){
@@ -159,20 +160,20 @@ class App extends Component{
   //   }
   //   return <button>Loggoin</button>
   // }
-  onSerachChange = (event)=>{
+  // onSerachChange = (event)=>{
     
-   this.setState({
-    'searchState': event.target.value,
-   })
-    console.log(this.state.searchState);
-  }
-  updateWithArrow=(id)=>{
-    console.log(`user is arrowed the ${id}`)
-     const updatedList=this.state.histoyList.filter(eachItem => eachItem.id!== id)
-    this.setState({
-      histoyList: updatedList,
-    })
-  }
+  //  this.setState({
+  //   'searchState': event.target.value,
+  //  })
+  //   console.log(this.state.searchState);
+  // }
+  // updateWithArrow=(id)=>{
+  //   console.log(`user is arrowed the ${id}`)
+  //    const updatedList=this.state.histoyList.filter(eachItem => eachItem.id!== id)
+  //   this.setState({
+  //     histoyList: updatedList,
+  //   })
+  // }
   render() {
     // const {isLoooged}=this.state;
     // let autho;
@@ -181,12 +182,12 @@ class App extends Component{
     // }else{
     //   autho = <button>Login</button>
     // }
-    const {searchState,histoyList} = this.state;
-    console.log(searchState);
-    const searchResult = histoyList.filter(eachItem =>eachItem.title.includes(searchState));
-    if(!histoyList){
-      console.log("NO logs are found")
-  }
+  //   const {searchState,histoyList} = this.state;
+  //   console.log(searchState);
+  //   const searchResult = histoyList.filter(eachItem =>eachItem.title.includes(searchState));
+  //   if(!histoyList){
+  //     console.log("NO logs are found")
+  // }
       return (
       <div>
          {/* <Welcome /> */}
@@ -197,13 +198,14 @@ class App extends Component{
           {/* <RandomNumber /> */}
           {/* <Withdarw /> */}
           {/* < /> */}
+          <DebuggCounter/>
         
          {/* {this.rendrCondition()}
           */}
           {/* {isLoooged && <button>Logout</button>}
           {!isLoooged && <button>Loggoin</button>} */}
           {/* <SpeedoMeter /> */}
-          <div className="list-container">
+          {/* <div className="list-container">
               <h1 className="title">Wel come to the Google List</h1>
               <input type='search' onChange={this.onSerachChange} />
               <ul>
@@ -220,7 +222,7 @@ class App extends Component{
     ))
   )}
               </ul>
-              </div>
+              </div> */}
       </div>
     ) 
   }
