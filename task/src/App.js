@@ -2,6 +2,7 @@
 import { Component } from 'react';
 import './App.css';
 import Withdarw from './componets/WithDarw/Withdarw';
+import GoogleSsearch from './componets/GoogleSearchSuugg/GoogleSsearch';
 import TodoList from './componets/TodoList/TodoList';
 import SearchDestinication from './componets/SearchDestination/SearchDestinication';
 import RandomNumber from './componets/RandomNumber/RandomNumber';
@@ -64,11 +65,51 @@ import Welcome from './componets/Welcome/Welcome';
 //     "title": "Complete React JS Tutorial Part 6",
 //   }
 // ]
-class App extends Component{
-  // state ={
-  //   toDoList: toDoList,
 
-  // }
+const intialgoogleSuggestionList=[
+  {
+    id: 1,
+    title: "Nagender"
+  },
+  {
+    id: 2,
+    title: "Miles"
+  },
+  {
+    id: 3,
+    title: "Esther"
+  },
+  {
+    id: 4,
+    title: "Floyd"
+  },{
+    id: 5,
+    title: "Jacob"
+  },{
+    id: 6,
+    title: "Ashley"
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+class App extends Component{
+  state ={
+    'searchState': ' ',
+    googleSuggestionList: intialgoogleSuggestionList
+
+
+  }
   // rendrCondition=()=>{
   //   const {isLoooged}=this.state;
   //   if(isLoooged === true){
@@ -76,20 +117,20 @@ class App extends Component{
   //   }
   //   return <button>Loggoin</button>
   // }
-  // onSerachChange = (event)=>{
-  //   this.setState({
-  //     "searchInput": event.target.value,
-  //   })
-  // }
-  // deleteUser=(id)=>{
-  //   console.log(`user is deleted the ${id}`)
+  onSerachChange = (event)=>{
+   this.setState({
+    'searchState': event.target.value,
+   })
+    // console.log(this.state.searchState);
+  }
+  updateWithArrow=(title)=>{
+    console.log(`user is arrowed the ${title}`)
     
-  //   const updatedList=this.state.toDoList.filter(eachItem => eachItem.id!== id)
-  //   this.setState({
-  //     toDoList: updatedList,
-  //   })
+    this.setState({
+      'searchState': title
+    });
 
-  // }
+  }
   render() {
     // const {isLoooged}=this.state;
     // let autho;
@@ -98,10 +139,9 @@ class App extends Component{
     // }else{
     //   autho = <button>Login</button>
     // }
-    // const {searchInput,SearchDestionList} = this.state;
-    // console.log(searchInput);
-    // const searchResult=SearchDestionList.filter(eachItem => eachItem.name.includes(searchInput))
-    return (
+    const {searchState,googleSuggestionList} = this.state;
+    console.log(searchState);
+    const searchResult = googleSuggestionList.filter(eachItem => eachItem.title.toLowerCase().includes(searchState.toLowerCase()));    return (
       <div>
          {/* <Welcome /> */}
          {/* <LightDarkMode /> */}
@@ -109,22 +149,23 @@ class App extends Component{
          {/* <EvenOdd /> */}
          {/* <LoginLogin /> */}
           {/* <RandomNumber /> */}
-          <Withdarw />
+          {/* <Withdarw /> */}
+          {/* < /> */}
 
          {/* {this.rendrCondition()}
           */}
           {/* {isLoooged && <button>Logout</button>}
           {!isLoooged && <button>Loggoin</button>} */}
           {/* <SpeedoMeter /> */}
-          {/* <div className="list-container">
-              <h1 className="title">Wel come to the todolist</h1>
-              <input type='search' onChange={this.onSerachChange}/>
+          <div className="list-container">
+              <h1 className="title">Wel come to the Google List</h1>
+              <input type='search' onChange={this.onSerachChange}  value={searchState} />
               <ul>
-                {this.state.toDoList.map((eachItem) => (
-                  <TodoList toDoList={eachItem} key={eachItem.id} deleteUser={this.deleteUser}/>
+                {searchResult.map((eachItem) => (
+                  <GoogleSsearch googleSuggestionList={eachItem} key={eachItem.id} updateWithArrow={this.updateWithArrow}/>
                 ))}
               </ul>
-              </div> */}
+              </div>
       </div>
     ) 
   }
