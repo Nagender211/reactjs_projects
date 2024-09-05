@@ -2,6 +2,7 @@
 import { Component } from 'react';
 import './App.css';
 import Withdarw from './componets/WithDarw/Withdarw';
+import LettersCalculator from './componets/LettersCalculator/LettersCalculator';
 import GoogleSsearch from './componets/GoogleSearchSuugg/GoogleSsearch';
 import TodoList from './componets/TodoList/TodoList';
 import SearchDestinication from './componets/SearchDestination/SearchDestinication';
@@ -66,30 +67,30 @@ import Welcome from './componets/Welcome/Welcome';
 //   }
 // ]
 
-const intialgoogleSuggestionList=[
-  {
-    id: 1,
-    title: "Nagender"
-  },
-  {
-    id: 2,
-    title: "Miles"
-  },
-  {
-    id: 3,
-    title: "Esther"
-  },
-  {
-    id: 4,
-    title: "Floyd"
-  },{
-    id: 5,
-    title: "Jacob"
-  },{
-    id: 6,
-    title: "Ashley"
-  }
-]
+// const intialgoogleSuggestionList=[
+//   {
+//     id: 1,
+//     title: "Nagender"
+//   },
+//   {
+//     id: 2,
+//     title: "Miles"
+//   },
+//   {
+//     id: 3,
+//     title: "Esther"
+//   },
+//   {
+//     id: 4,
+//     title: "Floyd"
+//   },{
+//     id: 5,
+//     title: "Jacob"
+//   },{
+//     id: 6,
+//     title: "Ashley"
+//   }
+// ]
 
 
 
@@ -106,9 +107,7 @@ const intialgoogleSuggestionList=[
 class App extends Component{
   state ={
     'searchState': ' ',
-    googleSuggestionList: intialgoogleSuggestionList
-
-
+    count: 0,
   }
   // rendrCondition=()=>{
   //   const {isLoooged}=this.state;
@@ -118,19 +117,23 @@ class App extends Component{
   //   return <button>Loggoin</button>
   // }
   onSerachChange = (event)=>{
+    const inputVlaue=event.target.value;
    this.setState({
-    'searchState': event.target.value,
-   })
-    // console.log(this.state.searchState);
-  }
-  updateWithArrow=(title)=>{
-    console.log(`user is arrowed the ${title}`)
     
-    this.setState({
-      'searchState': title
-    });
-
+    'searchState': inputVlaue,
+     count: inputVlaue.length,
+   })
+   
+    console.log(this.state.searchState,this.state.count);
   }
+  // updateWithArrow=(title)=>{
+  //   console.log(`user is arrowed the ${title}`)
+    
+  //   this.setState({
+  //     'searchState': title
+  //   });
+
+  // }
   render() {
     // const {isLoooged}=this.state;
     // let autho;
@@ -139,9 +142,9 @@ class App extends Component{
     // }else{
     //   autho = <button>Login</button>
     // }
-    const {searchState,googleSuggestionList} = this.state;
-    console.log(searchState);
-    const searchResult = googleSuggestionList.filter(eachItem => eachItem.title.toLowerCase().includes(searchState.toLowerCase()));    return (
+    const {searchState,count} = this.state;
+   
+      return (
       <div>
          {/* <Welcome /> */}
          {/* <LightDarkMode /> */}
@@ -159,12 +162,13 @@ class App extends Component{
           {/* <SpeedoMeter /> */}
           <div className="list-container">
               <h1 className="title">Wel come to the Google List</h1>
-              <input type='search' onChange={this.onSerachChange}  value={searchState} />
-              <ul>
-                {searchResult.map((eachItem) => (
-                  <GoogleSsearch googleSuggestionList={eachItem} key={eachItem.id} updateWithArrow={this.updateWithArrow}/>
+              <input type='search' onChange={this.onSerachChange} />
+              <p>letters are count by: {count}</p>
+              {/* <ul>
+                {searchState.map((eachItem) => (
+                  <LettersCalculator searchState={eachItem} />
                 ))}
-              </ul>
+              </ul> */}
               </div>
       </div>
     ) 
