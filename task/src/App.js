@@ -1,7 +1,7 @@
 
 import { Component } from 'react';
 import './App.css';
-
+import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
 import SwitchContet from './componets/SwitchContent/SwitchContet';
 
 import Header from './componets/SwitchContent/Header';
@@ -267,59 +267,86 @@ import Welcome from './componets/Welcome/Welcome';
 // ]
 
 
-const tabImagList=[
-  {imgId: 1,imgUrl: 'https://media.istockphoto.com/id/1534040386/photo/an-outdoor-bamboo-gazebo-nestled-amidst-lush-greenery-offering-serene-relaxation-after-a.webp?s=1024x1024&w=is&k=20&c=puHgSbTQpBTWvqIBd69gDXvBgDwpor6-fdYJoU0Hihc='},
-  {
-    imgId: 2,
-    imgUrl: 'https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_1280.jpg'
-  },{
-    imgId: 3,
-    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/06/45/woman-1867881_640.jpg'
-  },{
-    imgId: 4,
-    imgUrl: 'https://media.istockphoto.com/id/1360554439/photo/maldives-tropical-island.jpg?s=1024x1024&w=is&k=20&c=WsFXHNdPXliwtrZN_GVlw24Woh2X02od8-ULZQiCfaE='
-  },{
-    imgId: 5,
-    imgUrl: 'https://cdn.pixabay.com/photo/2015/12/12/00/29/jurassic-coast-1089035_640.jpg'
-  },{
-    imgId: 6,
-    imgUrl: 'https://cdn.pixabay.com/photo/2023/10/20/13/49/beach-8329531_640.jpg'
-  },{
-    imgId: 7,
-    imgUrl: 'https://cdn.pixabay.com/photo/2020/04/24/02/15/sunrise-5084755_640.jpg'
-  },{
-    imgId: 8,
-    imgUrl: 'https://cdn.pixabay.com/photo/2017/08/01/08/07/sea-2563389_640.jpg'
-  }
+// const tabImagList=[
+//   {imgId: 1,imgUrl: 'https://media.istockphoto.com/id/1534040386/photo/an-outdoor-bamboo-gazebo-nestled-amidst-lush-greenery-offering-serene-relaxation-after-a.webp?s=1024x1024&w=is&k=20&c=puHgSbTQpBTWvqIBd69gDXvBgDwpor6-fdYJoU0Hihc='},
+//   {
+//     imgId: 2,
+//     imgUrl: 'https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_1280.jpg'
+//   },{
+//     imgId: 3,
+//     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/06/45/woman-1867881_640.jpg'
+//   },{
+//     imgId: 4,
+//     imgUrl: 'https://media.istockphoto.com/id/1360554439/photo/maldives-tropical-island.jpg?s=1024x1024&w=is&k=20&c=WsFXHNdPXliwtrZN_GVlw24Woh2X02od8-ULZQiCfaE='
+//   },{
+//     imgId: 5,
+//     imgUrl: 'https://cdn.pixabay.com/photo/2015/12/12/00/29/jurassic-coast-1089035_640.jpg'
+//   },{
+//     imgId: 6,
+//     imgUrl: 'https://cdn.pixabay.com/photo/2023/10/20/13/49/beach-8329531_640.jpg'
+//   },{
+//     imgId: 7,
+//     imgUrl: 'https://cdn.pixabay.com/photo/2020/04/24/02/15/sunrise-5084755_640.jpg'
+//   },{
+//     imgId: 8,
+//     imgUrl: 'https://cdn.pixabay.com/photo/2017/08/01/08/07/sea-2563389_640.jpg'
+//   }
+// ]
+
+
+
+// const projectList=[
+//   {projectId: 1,projectUrl: 'https://media.istockphoto.com/id/1534040386/photo/an-outdoor-bamboo-gazebo-nestled-amidst-lush-greenery-offering-serene-relaxation-after-a.webp?s=1024x1024&w=is&k=20&c=puHgSbTQpBTWvqIBd69gDXvBgDwpor6-fdYJoU0Hihc='},
+//   {
+//     projectId: 2,
+//     projectUrl: 'https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_1280.jpg'
+//   },{
+//     projectId: 3,
+//     projectUrl: 'https://cdn.pixabay.com/photo/2016/11/29/06/45/woman-1867881_640.jpg'
+//   },{
+//     projectId: 4,
+//     projectUrl: 'https://media.istockphoto.com/id/1360554439/photo/maldives-tropical-island.jpg?s=1024x1024&w=is&k=20&c=WsFXHNdPXliwtrZN_GVlw24Woh2X02od8-ULZQiCfaE='
+//   },{
+//     projectId: 5,
+//     projectUrl: 'https://cdn.pixabay.com/photo/2015/12/12/00/29/jurassic-coast-1089035_640.jpg'
+//   },{
+//     projectId: 6,
+//     projectUrl: 'https://cdn.pixabay.com/photo/2023/10/20/13/49/beach-8329531_640.jpg'
+//   },{
+//     projectId: 7,
+//     projectUrl: 'https://cdn.pixabay.com/photo/2020/04/24/02/15/sunrise-5084755_640.jpg'
+//   },{
+//     projectId: 8,
+//     projectUrl: 'https://cdn.pixabay.com/photo/2017/08/01/08/07/sea-2563389_640.jpg'
+//   }
+// ]
+
+
+
+
+const CapicalList=[
+  {id: 1,name:'USA', capital:'Washington D.C.'},
+  {id:2,name:'UK', capital:'London'},
+  {id:3,name:'Canada', capital:'Ottawa'},
+  {id:4,name:'France', capital:'Paris'},
+  {id:5,name:'Germany', capital:'Berlin'},
+  {id:6,name:'Japan', capital:'Tokyo'},
+  {id:7,name:'China', capital:'Beijing'},
+  {id:8,name:'India', capital:'New Delhi'},
+  {id:9,name:'Russia', capital:'Moscow'},
+  {id:10,name:'Brazil', capital:'Brasília'},
+  {id:11,name:'Australia', capital:'Canberra'},
+  {id:12,name:'Italy', capital:'Rome'},
+  
 ]
 
 
 
-const projectList=[
-  {projectId: 1,projectUrl: 'https://media.istockphoto.com/id/1534040386/photo/an-outdoor-bamboo-gazebo-nestled-amidst-lush-greenery-offering-serene-relaxation-after-a.webp?s=1024x1024&w=is&k=20&c=puHgSbTQpBTWvqIBd69gDXvBgDwpor6-fdYJoU0Hihc='},
-  {
-    projectId: 2,
-    projectUrl: 'https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_1280.jpg'
-  },{
-    projectId: 3,
-    projectUrl: 'https://cdn.pixabay.com/photo/2016/11/29/06/45/woman-1867881_640.jpg'
-  },{
-    projectId: 4,
-    projectUrl: 'https://media.istockphoto.com/id/1360554439/photo/maldives-tropical-island.jpg?s=1024x1024&w=is&k=20&c=WsFXHNdPXliwtrZN_GVlw24Woh2X02od8-ULZQiCfaE='
-  },{
-    projectId: 5,
-    projectUrl: 'https://cdn.pixabay.com/photo/2015/12/12/00/29/jurassic-coast-1089035_640.jpg'
-  },{
-    projectId: 6,
-    projectUrl: 'https://cdn.pixabay.com/photo/2023/10/20/13/49/beach-8329531_640.jpg'
-  },{
-    projectId: 7,
-    projectUrl: 'https://cdn.pixabay.com/photo/2020/04/24/02/15/sunrise-5084755_640.jpg'
-  },{
-    projectId: 8,
-    projectUrl: 'https://cdn.pixabay.com/photo/2017/08/01/08/07/sea-2563389_640.jpg'
-  }
-]
+
+
+
+
+
 
 
 
@@ -331,7 +358,7 @@ const projectList=[
 
 class App extends Component{
 
-
+state={activeCountry: CapicalList[0].id}
 
 
 
@@ -347,7 +374,7 @@ class App extends Component{
   // state={activeTabId: tabsList[0].tabId}
 
 
-  state={activeImg: tabImagList[0].imgId}
+  // state={activeImg: tabImagList[0].imgId}
 
 
 
@@ -419,12 +446,12 @@ class App extends Component{
   //   )
   //   return filteredProjects
   // }
-  updateImage=(imgId)=>{
-    this.setState({
-      activeImg: imgId,
-    })
-    console.log(`image id is: ${imgId}`)
-  }
+  // updateImage=(imgId)=>{
+  // //   this.setState({
+  // //     activeImg: imgId,
+  // //   })
+  // //   console.log(`image id is: ${imgId}`)
+  // // }
 
 
 
@@ -437,12 +464,21 @@ class App extends Component{
     // updateTabList=(tabId)=>{
     //   this.setState({activeTabId: tabId})
     // }
-    getFillterdImages=()=>{
-      const {activeImg}=this.state;
-      const filteredImages=projectList.filter(eachImage=> eachImage.projectId===activeImg)
-      return filteredImages;
-    }
+    // getFillterdImages=()=>{
+    //   const {activeImg}=this.state;
+    //   const filteredImages=projectList.filter(eachImage=> eachImage.projectId===activeImg)
+    //   return filteredImages;
+    // }
+    
 
+    // getFillteredCapital=()=>{
+    //   const {activeCountry}=this.state;
+    //   const filteredCapital=CapicalList.find(capital=> capital.id===activeCountry)
+    //   return filteredCapital;
+    // }
+    updateTabList = (newCapital) => {
+      this.setState({ activeCountry: newCapital });
+    };
 
 
 
@@ -463,8 +499,9 @@ class App extends Component{
 
 
       // const filteredProjects=this.getFilteredProjets();
-      const filteredImages=this.getFillterdImages();
-
+      // const filteredImages=this.getFillterdImages();
+        // const filteredCapital=this.getFillteredCapital();
+        const {activeCountry}=this.state;
 
 
 
@@ -535,6 +572,15 @@ class App extends Component{
           {/* <DebuggCounter/> */}
           {/* <FriutCount /> */}
           {/* <FeedBackApp /> */}
+          {/* <div>
+          <ul>
+
+          <CapitalsApp CapicalList={CapicalList} />
+
+          </ul>
+          </div> */}
+          
+          
          {/* {this.rendrCondition()}
           */}
           {/* {isLoooged && <button>Logout</button>}
@@ -569,23 +615,24 @@ class App extends Component{
 
        
 
-        <ul className="project-list-container">
+        {/* <ul className="project-list-container">
           {filteredImages.map(projectDetails => (
             <DisplayImages
               key={projectDetails.projectId}
               projectDetails={projectDetails}
             />
           ))}
-        </ul>
+        </ul> */}
+        <h1>the capital of the  is : {activeCountry}</h1>
         <ul className="tabs-container">
-          {tabImagList.map(tabDetails => (
-            <GalleryApp
-              key={tabDetails.imgId}
+          {CapicalList.map(tabDetails => (
+            <CapitalsApp
+              key={tabDetails.id}
               tabDetails={tabDetails}
-              clickTabItem={this.clickTabItem}
-              updateImage={this.updateImage}
+              // clickTabItem={this.clickTabItem}
+              // updateImage={this.updateImage}
               // isActive={activeTabId === tabDetails.tabId}
-              // updateTabList={this.updateTabList}
+              updateTabList={this.updateTabList}
             />
           ))}
         </ul>
