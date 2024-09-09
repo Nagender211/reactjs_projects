@@ -1,0 +1,11 @@
+.imges{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+    gap: 20px;
+    /* cursor: pointer; */
+}
+.imges:hover{
+    cursor: pointer;
+}

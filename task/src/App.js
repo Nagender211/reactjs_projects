@@ -3,11 +3,13 @@ import { Component } from 'react';
 import './App.css';
 
 import SwitchContet from './componets/SwitchContent/SwitchContet';
+
 import Header from './componets/SwitchContent/Header';
 
 import TabItem from './componets/SwitchContent/TabItem';
 
-
+import GalleryApp from './componets/GallareyApp/GalleryApp';
+import DisplayImages from './componets/GallareyApp/DisplayImages';
 
 import FeedBackApp from './componets/FeedbackApp/FeedBackApp';
 import FriutCount from './componets/FriutCounter/FriutCount';
@@ -169,102 +171,155 @@ import Welcome from './componets/Welcome/Welcome';
 
 
 
-const tabsList = [
-  {tabId: 'STATIC', displayText: 'Static'},
-  {tabId: 'RESPONSIVE', displayText: 'Responsive'},
-  {tabId: 'DYNAMIC', displayText: 'Dynamic'},
+// const tabsList = [
+//   {tabId: 'STATIC', displayText: 'Static'},
+//   {tabId: 'RESPONSIVE', displayText: 'Responsive'},
+//   {tabId: 'DYNAMIC', displayText: 'Dynamic'},
+// ]
+
+// const projectsList = [
+//   {
+//     projectId: 0,
+//     category: 'STATIC',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s3-img.png',
+//     title: 'Music Page',
+//     description:
+//       'The music page enables the users to browse through the images of all-time favorite music albums.',
+//   },
+//   {
+//     projectId: 1,
+//     category: 'STATIC',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s4-img.png',
+//     title: 'Tourism Website',
+//     description:
+//       'A tourism website enables the user to browse through the images of popular destinations.',
+//   },
+//   {
+//     projectId: 2,
+//     category: 'STATIC',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s1-img.png',
+//     title: 'Advanced Technologies',
+//     description:
+//       'A website that gives you a basic understanding of Advanced Technologies.',
+//   },
+//      {
+//        projectId: 3,
+//        category: 'STATIC',
+//        imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s2-img.png',
+//        title: 'Happy Meals',
+//        description: 'Discover the best foods in over 1,000 restaurants.',
+//      },
+//   {
+//     projectId: 4,
+//     category: 'RESPONSIVE',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r4-img.png',
+//     title: 'VR Website',
+//     description:
+//       'VR Website enables users to explore AR and VR Products and Industry happenings.',
+//   },
+//   {
+//     projectId: 5,
+//     category: 'RESPONSIVE',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r2-img.png',
+//     title: 'Food Munch',
+//     description: 'Food Much Website is a user-centric food tech website.',
+//   },
+//   {
+//     projectId: 6,
+//     category: 'RESPONSIVE',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r3-img.png',
+//     title: 'Portfolio',
+//     description:
+//       'A portfolio is the best alternative for a resume to showcase your skills to the digital world.',
+//   },
+//  {
+//    projectId: 7,
+//    category: 'RESPONSIVE',
+//    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r1-img.png',
+//    title: 'Design',
+//    description:
+//      'A website to showcase the best features and give more information about the Design tool.',
+//  },
+//   {
+//     projectId: 8,
+//     category: 'DYNAMIC',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-d3-img.png',
+//     title: 'Speed Typing Test',
+//     description:
+//       'Speed Typing Test Application is capable of calculating the time to type the randomly generated quote.',
+//   },
+//   {
+//     projectId: 9,
+//     category: 'DYNAMIC',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-d1-img.png',
+//     title: 'Random Joke Page',
+//     description:
+//       'Random Joke Page is an API-based dynamic Web Application that generates a new joke.',
+//   },
+//   {
+//     projectId: 10,
+//     category: 'DYNAMIC',
+//     imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-d2-img.png',
+//     title: 'Sizing An Image',
+//     description:
+//       'This is a dynamic web application capable of adjusting the size of an element using DOM manipulations.',
+//   },
+// ]
+
+
+const tabImagList=[
+  {imgId: 1,imgUrl: 'https://media.istockphoto.com/id/1534040386/photo/an-outdoor-bamboo-gazebo-nestled-amidst-lush-greenery-offering-serene-relaxation-after-a.webp?s=1024x1024&w=is&k=20&c=puHgSbTQpBTWvqIBd69gDXvBgDwpor6-fdYJoU0Hihc='},
+  {
+    imgId: 2,
+    imgUrl: 'https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_1280.jpg'
+  },{
+    imgId: 3,
+    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/06/45/woman-1867881_640.jpg'
+  },{
+    imgId: 4,
+    imgUrl: 'https://media.istockphoto.com/id/1360554439/photo/maldives-tropical-island.jpg?s=1024x1024&w=is&k=20&c=WsFXHNdPXliwtrZN_GVlw24Woh2X02od8-ULZQiCfaE='
+  },{
+    imgId: 5,
+    imgUrl: 'https://cdn.pixabay.com/photo/2015/12/12/00/29/jurassic-coast-1089035_640.jpg'
+  },{
+    imgId: 6,
+    imgUrl: 'https://cdn.pixabay.com/photo/2023/10/20/13/49/beach-8329531_640.jpg'
+  },{
+    imgId: 7,
+    imgUrl: 'https://cdn.pixabay.com/photo/2020/04/24/02/15/sunrise-5084755_640.jpg'
+  },{
+    imgId: 8,
+    imgUrl: 'https://cdn.pixabay.com/photo/2017/08/01/08/07/sea-2563389_640.jpg'
+  }
 ]
 
-const projectsList = [
-  {
-    projectId: 0,
-    category: 'STATIC',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s3-img.png',
-    title: 'Music Page',
-    description:
-      'The music page enables the users to browse through the images of all-time favorite music albums.',
-  },
-  {
-    projectId: 1,
-    category: 'STATIC',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s4-img.png',
-    title: 'Tourism Website',
-    description:
-      'A tourism website enables the user to browse through the images of popular destinations.',
-  },
+
+
+const projectList=[
+  {projectId: 1,projectUrl: 'https://media.istockphoto.com/id/1534040386/photo/an-outdoor-bamboo-gazebo-nestled-amidst-lush-greenery-offering-serene-relaxation-after-a.webp?s=1024x1024&w=is&k=20&c=puHgSbTQpBTWvqIBd69gDXvBgDwpor6-fdYJoU0Hihc='},
   {
     projectId: 2,
-    category: 'STATIC',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s1-img.png',
-    title: 'Advanced Technologies',
-    description:
-      'A website that gives you a basic understanding of Advanced Technologies.',
-  },
-     {
-       projectId: 3,
-       category: 'STATIC',
-       imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-s2-img.png',
-       title: 'Happy Meals',
-       description: 'Discover the best foods in over 1,000 restaurants.',
-     },
-  {
+    projectUrl: 'https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_1280.jpg'
+  },{
+    projectId: 3,
+    projectUrl: 'https://cdn.pixabay.com/photo/2016/11/29/06/45/woman-1867881_640.jpg'
+  },{
     projectId: 4,
-    category: 'RESPONSIVE',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r4-img.png',
-    title: 'VR Website',
-    description:
-      'VR Website enables users to explore AR and VR Products and Industry happenings.',
-  },
-  {
+    projectUrl: 'https://media.istockphoto.com/id/1360554439/photo/maldives-tropical-island.jpg?s=1024x1024&w=is&k=20&c=WsFXHNdPXliwtrZN_GVlw24Woh2X02od8-ULZQiCfaE='
+  },{
     projectId: 5,
-    category: 'RESPONSIVE',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r2-img.png',
-    title: 'Food Munch',
-    description: 'Food Much Website is a user-centric food tech website.',
-  },
-  {
+    projectUrl: 'https://cdn.pixabay.com/photo/2015/12/12/00/29/jurassic-coast-1089035_640.jpg'
+  },{
     projectId: 6,
-    category: 'RESPONSIVE',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r3-img.png',
-    title: 'Portfolio',
-    description:
-      'A portfolio is the best alternative for a resume to showcase your skills to the digital world.',
-  },
- {
-   projectId: 7,
-   category: 'RESPONSIVE',
-   imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-r1-img.png',
-   title: 'Design',
-   description:
-     'A website to showcase the best features and give more information about the Design tool.',
- },
-  {
+    projectUrl: 'https://cdn.pixabay.com/photo/2023/10/20/13/49/beach-8329531_640.jpg'
+  },{
+    projectId: 7,
+    projectUrl: 'https://cdn.pixabay.com/photo/2020/04/24/02/15/sunrise-5084755_640.jpg'
+  },{
     projectId: 8,
-    category: 'DYNAMIC',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-d3-img.png',
-    title: 'Speed Typing Test',
-    description:
-      'Speed Typing Test Application is capable of calculating the time to type the randomly generated quote.',
-  },
-  {
-    projectId: 9,
-    category: 'DYNAMIC',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-d1-img.png',
-    title: 'Random Joke Page',
-    description:
-      'Random Joke Page is an API-based dynamic Web Application that generates a new joke.',
-  },
-  {
-    projectId: 10,
-    category: 'DYNAMIC',
-    imageURL: 'https://assets.ccbp.in/frontend/react-js/projects-d2-img.png',
-    title: 'Sizing An Image',
-    description:
-      'This is a dynamic web application capable of adjusting the size of an element using DOM manipulations.',
-  },
+    projectUrl: 'https://cdn.pixabay.com/photo/2017/08/01/08/07/sea-2563389_640.jpg'
+  }
 ]
-
-
 
 
 
@@ -286,7 +341,13 @@ class App extends Component{
   // clickTabItem = tabValue => {
   //   this.setState({activeTabId: tabValue})
   // }
-  state={activeTabId: tabsList[0].tabId}
+
+
+
+  // state={activeTabId: tabsList[0].tabId}
+
+
+  state={activeImg: tabImagList[0].imgId}
 
 
 
@@ -358,14 +419,28 @@ class App extends Component{
   //   )
   //   return filteredProjects
   // }
+  updateImage=(imgId)=>{
+    this.setState({
+      activeImg: imgId,
+    })
+    console.log(`image id is: ${imgId}`)
+  }
 
-    getFilteredProjets=()=>{
-      const {activeTabId}=this.state;
-      const filteredProjects=projectsList.filter(eacjProject=> eacjProject.category===activeTabId)
-      return filteredProjects;
-    }
-    updateTabList=(tabId)=>{
-      this.setState({activeTabId: tabId})
+
+
+
+    // getFilteredProjets=()=>{
+    //   const {activeTabId}=this.state;
+    //   const filteredProjects=projectsList.filter(eacjProject=> eacjProject.category===activeTabId)
+    //   return filteredProjects;
+    // }
+    // updateTabList=(tabId)=>{
+    //   this.setState({activeTabId: tabId})
+    // }
+    getFillterdImages=()=>{
+      const {activeImg}=this.state;
+      const filteredImages=projectList.filter(eachImage=> eachImage.projectId===activeImg)
+      return filteredImages;
     }
 
 
@@ -383,7 +458,12 @@ class App extends Component{
 
 
   render() {
-      const filteredProjects=this.getFilteredProjets();
+
+
+
+
+      // const filteredProjects=this.getFilteredProjets();
+      const filteredImages=this.getFillterdImages();
 
 
 
@@ -391,6 +471,14 @@ class App extends Component{
 
 
 
+
+
+
+
+
+
+
+      
 
 
 
@@ -471,31 +559,33 @@ class App extends Component{
           )}
               </div> */}
                <div className="app-container">
-        <Header />
+        {/* <Header />
         <h1 className="title">Projects</h1>
         <p className="description">
           Your skills and achievements showcase your strengths and abilities.
           Speak about any new skills or software you learnt to perform the
           project responsibilities.
-        </p>
+        </p> */}
 
-        <ul className="tabs-container">
-          {tabsList.map(tabDetails => (
-            <TabItem
-              key={tabDetails.tabId}
-              tabDetails={tabDetails}
-              clickTabItem={this.clickTabItem}
-              // isActive={activeTabId === tabDetails.tabId}
-              updateTabList={this.updateTabList}
+       
+
+        <ul className="project-list-container">
+          {filteredImages.map(projectDetails => (
+            <DisplayImages
+              key={projectDetails.projectId}
+              projectDetails={projectDetails}
             />
           ))}
         </ul>
-
-        <ul className="project-list-container">
-          {filteredProjects.map(projectDetails => (
-            <SwitchContet
-              key={projectDetails.projectId}
-              projectDetails={projectDetails}
+        <ul className="tabs-container">
+          {tabImagList.map(tabDetails => (
+            <GalleryApp
+              key={tabDetails.imgId}
+              tabDetails={tabDetails}
+              clickTabItem={this.clickTabItem}
+              updateImage={this.updateImage}
+              // isActive={activeTabId === tabDetails.tabId}
+              // updateTabList={this.updateTabList}
             />
           ))}
         </ul>
