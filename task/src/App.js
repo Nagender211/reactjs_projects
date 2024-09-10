@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import './App.css';
 
-
+import ReviewsApp from './componets/ReviewsApp/ReviewsApp';
 import CoinTask from './componets/CoinTask/CoinTask';
 
 import HeaderSotre from './componets/StoreApp/HeaderSotre';
@@ -655,7 +655,8 @@ class App extends Component{
           {/* <DebuggCounter/> */}
           {/* <FriutCount /> */}
           {/* <FeedBackApp /> */}
-          <CoinTask />
+          {/* <CoinTask /> */}
+          <ReviewsApp />
           {/* <div>
           <ul>
 
