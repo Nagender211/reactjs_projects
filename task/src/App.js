@@ -1,6 +1,11 @@
 
 import { Component } from 'react';
 import './App.css';
+
+import HeaderSotre from './componets/StoreApp/HeaderSotre';
+import ContentStore from './componets/StoreApp/ContentStore';
+import Tabnavigationstore from './componets/StoreApp/Tabnavigationstore';
+
 import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
 import SwitchContet from './componets/SwitchContent/SwitchContet';
 
@@ -324,23 +329,73 @@ import Welcome from './componets/Welcome/Welcome';
 
 
 
-const CapicalList=[
-  {id: 1,name:'USA', capital:'Washington D.C.'},
-  {id:2,name:'UK', capital:'London'},
-  {id:3,name:'Canada', capital:'Ottawa'},
-  {id:4,name:'France', capital:'Paris'},
-  {id:5,name:'Germany', capital:'Berlin'},
-  {id:6,name:'Japan', capital:'Tokyo'},
-  {id:7,name:'China', capital:'Beijing'},
-  {id:8,name:'India', capital:'New Delhi'},
-  {id:9,name:'Russia', capital:'Moscow'},
-  {id:10,name:'Brazil', capital:'Brasília'},
-  {id:11,name:'Australia', capital:'Canberra'},
-  {id:12,name:'Italy', capital:'Rome'},
+// const CapicalList=[
+//   {id: 1,name:'USA', capital:'Washington D.C.'},
+//   {id:2,name:'UK', capital:'London'},
+//   {id:3,name:'Canada', capital:'Ottawa'},
+//   {id:4,name:'France', capital:'Paris'},
+//   {id:5,name:'Germany', capital:'Berlin'},
+//   {id:6,name:'Japan', capital:'Tokyo'},
+//   {id:7,name:'China', capital:'Beijing'},
+//   {id:8,name:'India', capital:'New Delhi'},
+//   {id:9,name:'Russia', capital:'Moscow'},
+//   {id:10,name:'Brazil', capital:'Brasília'},
+//   {id:11,name:'Australia', capital:'Canberra'},
+//   {id:12,name:'Italy', capital:'Rome'},
   
+// ]
+
+const tabList=[{
+  tabId: 'SOCIAL', displayText: 'Social'
+},
+{
+  tabId: 'GAMES', displayText: 'Games'
+},{
+  tabId: 'NEWS', displayText: 'News'
+},{
+  tabId: 'FOOD', displayText: 'Food'
+}
 ]
+const projectList=[{
+  projectId: 1,
+  catagery: 'SOCIAL',
+  title: 'Facebook'
 
+}, 
+  {
+    projectId: 2,
+    catagery: 'SOCIAL',
+    title: 'Instagram'
 
+  },{
+    projectId: 3,
+    catagery: 'NEWS',
+    title: 'The Guardian'
+  },
+  {
+    projectId: 4,
+    catagery: 'NEWS',
+    title: 'FFc News'
+  },{
+    projectId: 5,
+    catagery: 'GAMES',
+    title: 'Minecraft'
+  },
+  {
+    projectId: 6,
+    catagery: 'GAMES',
+    title: 'Fuck Mario'
+  },
+  {
+    projectId: 7,
+    catagery: 'FOOD',
+    title: 'Pizza Hut'
+  },{
+    projectId: 8,
+    catagery: 'FOOD',
+    title: 'Fast food'
+  }
+]
 
 
 
@@ -358,7 +413,8 @@ const CapicalList=[
 
 class App extends Component{
 
-state={activeCountry: CapicalList[0].id}
+// state={activeCountry: CapicalList[0].id}
+state={acttiveTabId: tabList[0].tabId,'serachState': ''}
 
 
 
@@ -456,6 +512,25 @@ state={activeCountry: CapicalList[0].id}
 
 
 
+  getFilteredListIteams=()=>{
+    const {acttiveTabId}=this.state;
+    const filteredList=projectList.filter(eachIteamId=> eachIteamId.catagery===acttiveTabId)
+    return filteredList;
+  }
+  updateTabList=(tabId)=>{
+    this.setState({
+      acttiveTabId: tabId
+    })
+  }
+  onSearchInput=(e)=>{
+    this.setState({
+      searchState: e.target.value,
+    })
+
+  }
+
+
+
     // getFilteredProjets=()=>{
     //   const {activeTabId}=this.state;
     //   const filteredProjects=projectsList.filter(eacjProject=> eacjProject.category===activeTabId)
@@ -476,9 +551,9 @@ state={activeCountry: CapicalList[0].id}
     //   const filteredCapital=CapicalList.find(capital=> capital.id===activeCountry)
     //   return filteredCapital;
     // }
-    updateTabList = (newCapital) => {
-      this.setState({ activeCountry: newCapital });
-    };
+    // updateTabList = (newCapital) => {
+    //   this.setState({ activeCountry: newCapital });
+    // };
 
 
 
@@ -501,7 +576,12 @@ state={activeCountry: CapicalList[0].id}
       // const filteredProjects=this.getFilteredProjets();
       // const filteredImages=this.getFillterdImages();
         // const filteredCapital=this.getFillteredCapital();
-        const {activeCountry}=this.state;
+        // const {activeCountry}=this.state;
+        const filteredList=this.getFilteredListIteams();
+        const {acttiveTabId}=this.state
+        const {searchState}=this.state;
+        // console.log(searchState)
+        const FilterSearch=filteredList.filter(eachCataery=> eachCataery.title.includes(searchState))
 
 
 
@@ -605,29 +685,12 @@ state={activeCountry: CapicalList[0].id}
           )}
               </div> */}
                <div className="app-container">
-        {/* <Header />
-        <h1 className="title">Projects</h1>
-        <p className="description">
-          Your skills and achievements showcase your strengths and abilities.
-          Speak about any new skills or software you learnt to perform the
-          project responsibilities.
-        </p> */}
-
-       
-
-        {/* <ul className="project-list-container">
-          {filteredImages.map(projectDetails => (
-            <DisplayImages
-              key={projectDetails.projectId}
-              projectDetails={projectDetails}
-            />
-          ))}
-        </ul> */}
-        <h1>the capital of the  is : {activeCountry}</h1>
+        <HeaderSotre />
+        <input type='search' placeholder='please search any blog....' onChange={this.onSearchInput} value={searchState}/>
         <ul className="tabs-container">
-          {CapicalList.map(tabDetails => (
-            <CapitalsApp
-              key={tabDetails.id}
+          {tabList.map(tabDetails => (
+            <Tabnavigationstore
+              key={tabDetails.tabId}
               tabDetails={tabDetails}
               // clickTabItem={this.clickTabItem}
               // updateImage={this.updateImage}
@@ -636,33 +699,25 @@ state={activeCountry: CapicalList[0].id}
             />
           ))}
         </ul>
+
+       
+
+        <ul className="project-list-container">
+          {FilterSearch.map(projectDetails => (
+            <ContentStore
+              key={projectDetails.projectId}
+              projectDetails={projectDetails}
+            />
+          ))}
+        </ul>
+        {/* <h1>the capital of the  is : {activeCountry}</h1> */}
+        
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
+       
       </div>
     ) 
   }
 }
-//   <div>
-//     <Counter />
-   
-//     <FruitsCounter />
-   
-//   </div>
-// )
 
 
 export default App;
