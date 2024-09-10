@@ -2,6 +2,9 @@
 import { Component } from 'react';
 import './App.css';
 
+
+import CoinTask from './componets/CoinTask/CoinTask';
+
 import HeaderSotre from './componets/StoreApp/HeaderSotre';
 import ContentStore from './componets/StoreApp/ContentStore';
 import Tabnavigationstore from './componets/StoreApp/Tabnavigationstore';
@@ -345,57 +348,57 @@ import Welcome from './componets/Welcome/Welcome';
   
 // ]
 
-const tabList=[{
-  tabId: 'SOCIAL', displayText: 'Social'
-},
-{
-  tabId: 'GAMES', displayText: 'Games'
-},{
-  tabId: 'NEWS', displayText: 'News'
-},{
-  tabId: 'FOOD', displayText: 'Food'
-}
-]
-const projectList=[{
-  projectId: 1,
-  catagery: 'SOCIAL',
-  title: 'Facebook'
+// const tabList=[{
+//   tabId: 'SOCIAL', displayText: 'Social'
+// },
+// {
+//   tabId: 'GAMES', displayText: 'Games'
+// },{
+//   tabId: 'NEWS', displayText: 'News'
+// },{
+//   tabId: 'FOOD', displayText: 'Food'
+// }
+// ]
+// const projectList=[{
+//   projectId: 1,
+//   catagery: 'SOCIAL',
+//   title: 'Facebook'
 
-}, 
-  {
-    projectId: 2,
-    catagery: 'SOCIAL',
-    title: 'Instagram'
+// }, 
+//   {
+//     projectId: 2,
+//     catagery: 'SOCIAL',
+//     title: 'Instagram'
 
-  },{
-    projectId: 3,
-    catagery: 'NEWS',
-    title: 'The Guardian'
-  },
-  {
-    projectId: 4,
-    catagery: 'NEWS',
-    title: 'FFc News'
-  },{
-    projectId: 5,
-    catagery: 'GAMES',
-    title: 'Minecraft'
-  },
-  {
-    projectId: 6,
-    catagery: 'GAMES',
-    title: 'Fuck Mario'
-  },
-  {
-    projectId: 7,
-    catagery: 'FOOD',
-    title: 'Pizza Hut'
-  },{
-    projectId: 8,
-    catagery: 'FOOD',
-    title: 'Fast food'
-  }
-]
+//   },{
+//     projectId: 3,
+//     catagery: 'NEWS',
+//     title: 'The Guardian'
+//   },
+//   {
+//     projectId: 4,
+//     catagery: 'NEWS',
+//     title: 'FFc News'
+//   },{
+//     projectId: 5,
+//     catagery: 'GAMES',
+//     title: 'Minecraft'
+//   },
+//   {
+//     projectId: 6,
+//     catagery: 'GAMES',
+//     title: 'Fuck Mario'
+//   },
+//   {
+//     projectId: 7,
+//     catagery: 'FOOD',
+//     title: 'Pizza Hut'
+//   },{
+//     projectId: 8,
+//     catagery: 'FOOD',
+//     title: 'Fast food'
+//   }
+// ]
 
 
 
@@ -414,7 +417,7 @@ const projectList=[{
 class App extends Component{
 
 // state={activeCountry: CapicalList[0].id}
-state={acttiveTabId: tabList[0].tabId,'serachState': ''}
+// state={acttiveTabId: tabList[0].tabId,'serachState': ''}
 
 
 
@@ -512,22 +515,22 @@ state={acttiveTabId: tabList[0].tabId,'serachState': ''}
 
 
 
-  getFilteredListIteams=()=>{
-    const {acttiveTabId}=this.state;
-    const filteredList=projectList.filter(eachIteamId=> eachIteamId.catagery===acttiveTabId)
-    return filteredList;
-  }
-  updateTabList=(tabId)=>{
-    this.setState({
-      acttiveTabId: tabId
-    })
-  }
-  onSearchInput=(e)=>{
-    this.setState({
-      searchState: e.target.value,
-    })
+  // getFilteredListIteams=()=>{
+  //   const {acttiveTabId}=this.state;
+  //   const filteredList=projectList.filter(eachIteamId=> eachIteamId.catagery===acttiveTabId)
+  //   return filteredList;
+  // }
+  // updateTabList=(tabId)=>{
+  //   this.setState({
+  //     acttiveTabId: tabId
+  //   })
+  // }
+  // onSearchInput=(e)=>{
+  //   this.setState({
+  //     searchState: e.target.value,
+  //   })
 
-  }
+  // }
 
 
 
@@ -577,11 +580,11 @@ state={acttiveTabId: tabList[0].tabId,'serachState': ''}
       // const filteredImages=this.getFillterdImages();
         // const filteredCapital=this.getFillteredCapital();
         // const {activeCountry}=this.state;
-        const filteredList=this.getFilteredListIteams();
-        const {acttiveTabId}=this.state
-        const {searchState}=this.state;
+        // const filteredList=this.getFilteredListIteams();
+        // const {acttiveTabId}=this.state
+        // const {searchState}=this.state;
         // console.log(searchState)
-        const FilterSearch=filteredList.filter(eachCataery=> eachCataery.title.includes(searchState))
+        // const FilterSearch=filteredList.filter(eachCataery=> eachCataery.title.includes(searchState))
 
 
 
@@ -652,6 +655,7 @@ state={acttiveTabId: tabList[0].tabId,'serachState': ''}
           {/* <DebuggCounter/> */}
           {/* <FriutCount /> */}
           {/* <FeedBackApp /> */}
+          <CoinTask />
           {/* <div>
           <ul>
 
@@ -684,7 +688,7 @@ state={acttiveTabId: tabList[0].tabId,'serachState': ''}
             </ul>
           )}
               </div> */}
-               <div className="app-container">
+               {/* <div className="app-container">
         <HeaderSotre />
         <input type='search' placeholder='please search any blog....' onChange={this.onSearchInput} value={searchState}/>
         <ul className="tabs-container">
@@ -692,9 +696,9 @@ state={acttiveTabId: tabList[0].tabId,'serachState': ''}
             <Tabnavigationstore
               key={tabDetails.tabId}
               tabDetails={tabDetails}
-              // clickTabItem={this.clickTabItem}
-              // updateImage={this.updateImage}
-              // isActive={activeTabId === tabDetails.tabId}
+              clickTabItem={this.clickTabItem}
+              updateImage={this.updateImage}
+              isActive={activeTabId === tabDetails.tabId}
               updateTabList={this.updateTabList}
             />
           ))}
@@ -710,9 +714,9 @@ state={acttiveTabId: tabList[0].tabId,'serachState': ''}
             />
           ))}
         </ul>
-        {/* <h1>the capital of the  is : {activeCountry}</h1> */}
+        <h1>the capital of the  is : {activeCountry}</h1>
         
-      </div>
+      </div> */}
        
       </div>
     ) 
