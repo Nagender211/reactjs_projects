@@ -2,6 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
+
+import ContactUpadate from './componets/ContactUpdate/ContactUpadate';
 import ReviewsApp from './componets/ReviewsApp/ReviewsApp';
 import CoinTask from './componets/CoinTask/CoinTask';
 
@@ -656,7 +658,8 @@ class App extends Component{
           {/* <FriutCount /> */}
           {/* <FeedBackApp /> */}
           {/* <CoinTask /> */}
-          <ReviewsApp />
+          {/* <ReviewsApp /> */}
+          <ContactUpadate />
           {/* <div>
           <ul>
 
