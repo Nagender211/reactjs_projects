@@ -2,6 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
+// import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
+import CommensApp from './componets/CommentsBox/CommensApp';
 
 import ContactUpadate from './componets/ContactUpdate/ContactUpadate';
 import ReviewsApp from './componets/ReviewsApp/ReviewsApp';
@@ -11,7 +13,7 @@ import HeaderSotre from './componets/StoreApp/HeaderSotre';
 import ContentStore from './componets/StoreApp/ContentStore';
 import Tabnavigationstore from './componets/StoreApp/Tabnavigationstore';
 
-import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
+// import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
 import SwitchContet from './componets/SwitchContent/SwitchContet';
 
 import Header from './componets/SwitchContent/Header';
@@ -659,7 +661,8 @@ class App extends Component{
           {/* <FeedBackApp /> */}
           {/* <CoinTask /> */}
           {/* <ReviewsApp /> */}
-          <ContactUpadate />
+          {/* <ContactUpadate /> */}
+          <CommensApp />
           {/* <div>
           <ul>
 
