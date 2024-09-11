@@ -1,115 +1,134 @@
-import {Component} from 'react'
-import {v4 as uuidv4} from 'uuid'
-
-// import ContactItem from './components/ContactItem'
+import React, { Component } from 'react'
 import ContactIteams from './ContactIteams'
-// import './App.css'
+import {v4 as uuid4} from 'uuid'
 
-const initialContactsList = [
-  {
-    id: uuidv4(),
-    name: 'Ram',
-    mobileNo: 9999988888,
+
+const contactList=[{
+    id:uuid4(),
+    name:'Jane Doe',
+    phoneNumber:'0987654321',
     isFavorite: false,
-  },
-  {
-    id: uuidv4(),
-    name: 'Pavan',
-    mobileNo: 8888866666,
-    isFavorite: true,
-  },
-  {
-    id: uuidv4(),
-    name: 'Nikhil',
-    mobileNo: 9999955555,
-    isFavorite: false,
-  },
-]
+},
 
-class ContactUpadate extends Component {
-  state = {
-    contactsList: initialContactsList,
-    name: '',
-    mobileNo: '',
-  }
-
-  toggleIsFavorite = id => {
-    this.setState(prevState => ({
-      contactsList: prevState.contactsList.map(eachContact => {
-        if (id === eachContact.id) {
-          return {...eachContact, isFavorite: !eachContact.isFavorite}
-        }
-        return eachContact
-      }),
-    }))
-  }
-
-  onAddContact = event => {
-    event.preventDefault()
-    const {name, mobileNo} = this.state
-    const newContact = {
-      id: uuidv4(),
-      name,
-      mobileNo,
-      isFavorite: false,
+    {
+        id:uuid4(),
+        name:'Nani',
+        phoneNumber:'1234567890',
+        isFavorite: true,
+    },
+    {
+        id:uuid4(),
+        name:'Rachel',
+        phoneNumber:'5555555555',
+        isFavorite: false,
+    },
+    {
+        id:uuid4(),
+        name:'John Doe',
+        phoneNumber:'9999999999',
+        isFavorite: false,
+    },
+    {
+        id:uuid4(),
+        name:'Emily',
+        phoneNumber:'7777777777',
+        isFavorite: false,
     }
 
-    this.setState(prevState => ({
-      contactsList: [...prevState.contactsList, newContact],
-      name: '',
-      mobileNo: '',
-    }))
-  }
+]
 
-  onChangeMobileNo = event => {
-    this.setState({mobileNo: event.target.value})
-  }
 
-  onChangeName = event => {
-    this.setState({name: event.target.value})
-  }
 
-  render() {
-    const {name, mobileNo, contactsList} = this.state
-    return (
-      <div className="app-container">
-        <div className="responsive-container">
-          <h1 className="heading">Contacts</h1>
-          <form className="contact-form-container" onSubmit={this.onAddContact}>
-            <input
-              value={name}
-              onChange={this.onChangeName}
-              className="input"
-              placeholder="Name"
-            />
-            <input
-              className="input"
-              value={mobileNo}
-              onChange={this.onChangeMobileNo}
-              placeholder="Mobile Number"
-            />
-            <button type="submit" className="button">
-              Add Contact
-            </button>
-          </form>
-          <ul className="contacts-table">
-            <li className="table-header">
-              <p className="table-header-cell name-column">Name</p>
-              <hr className="separator" />
-              <p className="table-header-cell">Mobile Number</p>
-            </li>
-            {contactsList.map(eachContact => (
-              <ContactIteams
-                key={eachContact.id}
-                contactDetails={eachContact}
-                toggleIsFavorite={this.toggleIsFavorite}
-              />
-            ))}
-          </ul>
-        </div>
-      </div>
-    )
-  }
+class ContactUpadate extends Component{
+    state={
+        name: '',
+        phoneNumber: '',
+        contacts: contactList,
+    }
+
+    toggleEventFfav=(id)=>{
+        this.setState(pre=>({
+            contacts: pre.contacts.map(eachContact=>{
+                if(id===eachContact.id){
+                    return {...eachContact, isFavorite: !eachContact.isFavorite}
+                }
+                return eachContact
+            })
+           
+
+        }))
+    }
+
+
+
+
+    onAddConatact=(e)=>{
+        e.preventDefault();
+        const {name,phoneNumber}=this.state
+        const newList={
+            id: uuid4(),
+            name,
+            phoneNumber,
+        }
+        this.setState(pre=>({
+            contacts: [...pre.contacts,newList],
+            name: '',
+            phoneNumber: '',
+        }))
+        // const newContact={
+        //     id: uuid4(),
+        //     name: this.state.name,
+        //     phoneNumber: this.state.phoneNumber,
+        // }
+        // this.setState({
+        //     contacts:[...this.state.contacts, newContact],
+        //     name: '',
+        //     phoneNumber: '',
+        // })
+        // console.log(this.state.contacts)
+        // console.log(this.state.name)
+        // console.log(this.state.phoneNumber)
+
+    }
+
+    nameUadate=(e)=>{
+        // console.log(e.target.value)
+        this.setState({
+            name: e.target.value
+        })
+    }
+    phoneNumberUpdate=(e)=>{
+        // console.log(e.target.value)
+        this.setState({
+            phoneNumber: e.target.value
+        })
+    }
+    render(){
+        // const {nameUadate}=this.state
+        const {contacts,name,phoneNumber}=this.state;
+        return(
+            <div><h1>Hello world I am here to teach you sominthing </h1>
+            <form>
+                <input type='text' placeholder='Enter your name' onChange={this.nameUadate} value={name}/>
+                <input type='text' placeholder='Enter your Phone Number'onChange={this.phoneNumberUpdate} value={phoneNumber}/>
+                <button type='submit' onClick={this.onAddConatact}>Add Contact</button>
+            </form>
+            {/* <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Phone Number</td>
+                </tr>
+            </table>
+             */}
+             {contacts.map(eachIteam=>(
+                <ContactIteams key={eachIteam.id} contactDeaitles={eachIteam} toggleEventFfav={this.toggleEventFfav}/>
+             ))
+
+             }
+           
+            </div>
+          
+        )
+    }
 }
-
 export default ContactUpadate

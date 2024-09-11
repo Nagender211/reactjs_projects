@@ -1,38 +1,26 @@
+import React from 'react'
 
-// import './index.css'
+const ContactIteams = (props) => {
+    const {contactDeaitles,toggleEventFfav}=props;
+    const {name,phoneNumber,id,isFavorite}=contactDeaitles;
+    const startfav=isFavorite ? 'https://assets.ccbp.in/frontend/react-js/star-filled-img.png' : 'https://assets.ccbp.in/frontend/react-js/star-outline-img.png'
 
-const ContactIteams = props => {
-  const {contactDetails, toggleIsFavorite} = props
-  const {name, mobileNo, isFavorite, id} = contactDetails
-
-  const starImgUrl = isFavorite
-    ? 'https://assets.ccbp.in/frontend/react-js/star-filled-img.png'
-    : 'https://assets.ccbp.in/frontend/react-js/star-outline-img.png'
-
-  const onClickFavoriteIcon = () => {
-    toggleIsFavorite(id)
-  }
-
+    const onFavIcon=()=>{
+        toggleEventFfav(id);
+  
+    }
   return (
-    <li className="table-row">
-      <div className="table-cell name-column">
-        <p>{name}</p>
-      </div>
-      <hr className="separator" />
-      <div className="table-cell mobile-no-column">
-        <p className="mobile-no-value">{mobileNo}</p>
-        <button
-          type="button"
-          className="favorite-icon-container"
-          onClick={onClickFavoriteIcon}
-        >
-          <img src={starImgUrl} className="favorite-icon" alt="star" />
-        </button>
-      </div>
-    </li>
+    <div>
+      <p>name: {name}</p>
+
+      <p>phoneNumber: {phoneNumber}</p>
+      
+      <button onClick={onFavIcon}><img src={startfav} /></button>
+    </div>
   )
 }
 
 export default ContactIteams
+
 
 // ContactIteams
