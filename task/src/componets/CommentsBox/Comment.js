@@ -1,5 +1,6 @@
 import React from 'react'
 import { formatDistanceToNow } from 'date-fns'
+import './CommentApp.css';
 
 const Comment = (props) => {
   const { eachComment, deleteComment, onEdit, toggleEventFfav } = props
@@ -21,21 +22,25 @@ const Comment = (props) => {
   }
 
   return (
-    <div>
-      <h1 style={{ width: '50px', height: '50px', background: 'red', padding: '0.5rem', borderRadius: '50%', display: 'inline-block', textAlign: 'center', color: '#fff' }}>{name[0]}</h1>
-      <p>{formatDistanceToNow(new Date(timestamp), { addSuffix: true })}</p>
-      <h1>{name}</h1>
-      <p>{comment}</p>
-      <button onClick={editComment}>Edit Comment</button>
-      <img 
-        src='https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png' 
-        alt="delete" 
-        onClick={onDeleteComment} 
-        style={{ cursor: 'pointer' }}
-      />
-      <button onClick={onLikeUpdate}>
-        <img src={likeIcon} alt="like" />
-      </button>
+    <div className="comment-item">
+      <div className="comment-avatar">{name[0]}</div>
+      <div className="comment-details">
+        <p className="comment-time">{formatDistanceToNow(new Date(timestamp), { addSuffix: true })}</p>
+        <h2 className="comment-name">{name}</h2>
+        <p className="comment-text">{comment}</p>
+      </div>
+      <div className="comment-actions">
+        <button onClick={editComment} className="edit-button">Edit</button>
+        <img 
+          src='https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png' 
+          alt="delete" 
+          onClick={onDeleteComment}
+          className="delete-icon"
+        />
+        <button onClick={onLikeUpdate} className="like-button">
+          <img src={likeIcon} alt="like" className="like-icon"/>
+        </button>
+      </div>
     </div>
   )
 }

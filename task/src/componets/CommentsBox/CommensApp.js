@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
 import { v4 as uuid4 } from 'uuid'
+import './CommentApp.css';
 
 class CommentsApp extends Component {
   state = {
@@ -19,7 +20,7 @@ class CommentsApp extends Component {
       this.setState((prevState) => ({
         comments: prevState.comments.map(eachComment =>
           eachComment.id === id
-            ? { ...eachComment, name, comment }  // Update the specific comment
+            ? { ...eachComment, name, comment }
             : eachComment
         ),
         name: '',   
@@ -32,8 +33,8 @@ class CommentsApp extends Component {
         id: uuid4(),
         name,
         comment,
-        isLike: true,  // Initialize isLike for a new comment
-        timestamp: new Date(),  // Store the creation time of the comment
+        isLike: true,
+        timestamp: new Date(),
       }
 
       this.setState(prevState => ({
@@ -71,7 +72,7 @@ class CommentsApp extends Component {
     this.setState(prevState => ({
       comments: prevState.comments.map(eachComment =>
         eachComment.id === id
-          ? { ...eachComment, isLike: !eachComment.isLike }  // Toggle the isLike property
+          ? { ...eachComment, isLike: !eachComment.isLike }
           : eachComment
       )
     }))
@@ -81,14 +82,15 @@ class CommentsApp extends Component {
     const { comments, name, comment } = this.state
 
     return (
-      <div>
-        <h1>Comments App</h1>
-        <form onSubmit={this.onUpdateComment}>
+      <div className="comments-app">
+        <h1 className="app-title">Comments App</h1>
+        <form onSubmit={this.onUpdateComment} className="comment-form">
           <input
             type="text"
             placeholder="Enter your Name"
             value={name}
             onChange={this.onNameChange}
+            className="input-name"
           />
           <textarea
             placeholder="Enter your Comment"
@@ -96,21 +98,24 @@ class CommentsApp extends Component {
             onChange={this.onCommentChange}
             rows="4"
             cols="40"
+            className="input-comment"
           />
-          <button type="submit">
+          <button type="submit" className="submit-button">
             {this.state.id ? 'Update Comment' : 'Submit'}
           </button>
         </form>
 
-        {comments.map(eachComment => (
-          <Comment
-            key={eachComment.id}
-            eachComment={eachComment}
-            deleteComment={this.deleteComment}
-            onEdit={this.onEdit}
-            toggleEventFfav={this.toggleEventFfav}
-          />
-        ))}
+        <div className="comments-list">
+          {comments.map(eachComment => (
+            <Comment
+              key={eachComment.id}
+              eachComment={eachComment}
+              deleteComment={this.deleteComment}
+              onEdit={this.onEdit}
+              toggleEventFfav={this.toggleEventFfav}
+            />
+          ))}
+        </div>
       </div>
     )
   }
