@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
 import { v4 as uuid4 } from 'uuid'
-import './CommentApp.css';
+// import './CommentApp.css';
 
 class CommentsApp extends Component {
   state = {
@@ -92,6 +92,8 @@ class CommentsApp extends Component {
             onChange={this.onNameChange}
             className="input-name"
           />
+          {/* <input type='date' /> */}
+
           <textarea
             placeholder="Enter your Comment"
             value={comment}
@@ -104,6 +106,8 @@ class CommentsApp extends Component {
             {this.state.id ? 'Update Comment' : 'Submit'}
           </button>
         </form>
+        
+
 
         <div className="comments-list">
           {comments.map(eachComment => (

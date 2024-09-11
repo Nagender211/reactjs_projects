@@ -1,6 +1,6 @@
 import React from 'react'
 import { formatDistanceToNow } from 'date-fns'
-import './CommentApp.css';
+// import './CommentApp.css';
 
 const Comment = (props) => {
   const { eachComment, deleteComment, onEdit, toggleEventFfav } = props
