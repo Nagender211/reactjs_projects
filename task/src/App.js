@@ -3,7 +3,7 @@ import { Component } from 'react';
 import './App.css';
 
 import AppointmentsApp from './componets/AppointmentsApp/AppointmentsApp';
-
+import MoneyManager from './componets/MoneyManager/MoneyManager';
 // import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
 import CommensApp from './componets/CommentsBox/CommensApp';
 
@@ -665,7 +665,8 @@ class App extends Component{
           {/* <ReviewsApp /> */}
           {/* <ContactUpadate /> */}
           {/* <CommensApp /> */}
-          <AppointmentsApp />
+          {/* <AppointmentsApp /> */}
+          <MoneyManager />
           {/* <div>
           <ul>
 
