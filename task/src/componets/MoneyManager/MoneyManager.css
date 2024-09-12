@@ -1,4 +1,4 @@
-/* Basic Styling */
+
 body {
     font-family: Arial, sans-serif;
   }
@@ -10,7 +10,7 @@ body {
     margin-top: 20px;
   }
   
-  /* Top section styling */
+  
   .top-section {
     width: 80%;
     display: flex;
@@ -30,15 +30,14 @@ body {
     text-align: right;
   }
   
-  /* Main content styling */
+
   .main-content {
     gap: 40px;
     display: flex;
     justify-content: space-between;
     width: 80%;
   }
-  
-  /* Left side - Form */
+
   .form-section {
     width: 40%;
     border: 2px solid #ddd;
@@ -75,7 +74,7 @@ body {
     background-color: #45a049;
   }
   
-  /* Right side - History Table */
+
   .history-section {
     
     width: 55%;

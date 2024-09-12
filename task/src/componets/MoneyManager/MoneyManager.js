@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
 import MoneyManagerContent from './MoneyManagerContent';
 import { v4 as uuid4 } from 'uuid';
-import './MoneyManager.css'; // Import the CSS file
+import './MoneyManager.css'; 
 
 class MoneyManager extends Component {
   state = {
     title: '',
     amount: '',
-    type: 'Income', // Default type set to Income
+    type: 'Income', 
     totalCount: 0,
     income: 0,
     express: 0,
     History: [],
   };
 
-  // Handle title change
   onTitleChange = (e) => {
     this.setState({ title: e.target.value });
   };
 
-  // Handle amount change
+ 
   onAmountChange = (e) => {
     this.setState({ amount: e.target.value });
   };
 
-  // Handle type change (Income/Expenditure)
   onTypeChange = (e) => {
     this.setState({ type: e.target.value });
   };
 
-  // Add balance based on type (Income/Expenditure)
   onAddBalance = (e) => {
     e.preventDefault();
     const { title, amount, type, History } = this.state;
@@ -59,7 +56,6 @@ class MoneyManager extends Component {
     }
   };
 
-  // Delete history item and adjust totals
   onDelete = (id) => {
     const { History } = this.state;
     const filteredList = History.filter((each) => each.id !== id);
@@ -87,7 +83,7 @@ class MoneyManager extends Component {
 
     return (
       <div className="container">
-        {/* Top Section */}
+    
         <div className="top-section">
           <div className="welcome-section">
             <h2>Hi, Nagender</h2>
@@ -100,9 +96,9 @@ class MoneyManager extends Component {
           </div>
         </div>
 
-        {/* Main Content */}
+    
         <div className="main-content">
-          {/* Form Section (Left Side) */}
+     
           <div className="form-section">
             <form>
               <label>Title:</label>
@@ -135,7 +131,7 @@ class MoneyManager extends Component {
             </form>
           </div>
 
-          {/* History Section (Right Side) */}
+     
           <div className="history-section">
             <h3>History</h3>
             <table className="history-table">
