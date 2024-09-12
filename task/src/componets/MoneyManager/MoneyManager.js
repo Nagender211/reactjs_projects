@@ -1,97 +1,173 @@
-import React, { Component } from 'react'
-import MoneyManagerContent from './MoneyManagerContent'
-import MoneyHeader from './MoneyHeader'
-import {v4 as uuid4} from 'uuid'
-class MoneyManager extends Component{
+import React, { Component } from 'react';
+import MoneyManagerContent from './MoneyManagerContent';
+import { v4 as uuid4 } from 'uuid';
+import './MoneyManager.css'; // Import the CSS file
 
+class MoneyManager extends Component {
+  state = {
+    title: '',
+    amount: '',
+    type: 'Income', // Default type set to Income
+    totalCount: 0,
+    income: 0,
+    express: 0,
+    History: [],
+  };
 
+  // Handle title change
+  onTitleChange = (e) => {
+    this.setState({ title: e.target.value });
+  };
 
-    state={
+  // Handle amount change
+  onAmountChange = (e) => {
+    this.setState({ amount: e.target.value });
+  };
+
+  // Handle type change (Income/Expenditure)
+  onTypeChange = (e) => {
+    this.setState({ type: e.target.value });
+  };
+
+  // Add balance based on type (Income/Expenditure)
+  onAddBalance = (e) => {
+    e.preventDefault();
+    const { title, amount, type, History } = this.state;
+    const newList = {
+      id: uuid4(),
+      title,
+      amount: Number(amount),
+      type,
+    };
+
+    if (type === 'Income') {
+      this.setState((prevState) => ({
+        History: [...prevState.History, newList],
         title: '',
         amount: '',
-        type: 'Income',
-        totalCount: 0,
-        income: 0,
-        express: 0,
-        History: [],
+        totalCount: prevState.totalCount + Number(amount),
+        income: prevState.income + Number(amount),
+      }));
+    } else if (type === 'Expenditure') {
+      this.setState((prevState) => ({
+        History: [...prevState.History, newList],
+        title: '',
+        amount: '',
+        totalCount: prevState.totalCount - Number(amount),
+        express: prevState.express + Number(amount),
+      }));
     }
+  };
 
-    onTitleChange=(e)=>{
-        this.setState({title: e.target.value})
+  // Delete history item and adjust totals
+  onDelete = (id) => {
+    const { History } = this.state;
+    const filteredList = History.filter((each) => each.id !== id);
+    const deletedItem = History.find((each) => each.id === id);
+
+    if (deletedItem) {
+      if (deletedItem.type === 'Income') {
+        this.setState((prevState) => ({
+          History: filteredList,
+          totalCount: prevState.totalCount - deletedItem.amount,
+          income: prevState.income - deletedItem.amount,
+        }));
+      } else if (deletedItem.type === 'Expenditure') {
+        this.setState((prevState) => ({
+          History: filteredList,
+          totalCount: prevState.totalCount + deletedItem.amount,
+          express: prevState.express - deletedItem.amount,
+        }));
+      }
     }
-    onAmountChange=(e)=>{
-        this.setState({
-            amount: e.target.value,
-            
-            // income: pre.income + (type === 'Income'? Number(e.target.value) : 0),
-            // express: pre.express + (type === 'Expenditure'? Number(e.target.value) : 0),
-        })
-    }
+  };
 
+  render() {
+    const { title, amount, type, totalCount, income, express, History } = this.state;
 
-    onAddbalence=(e)=>{
-        e.preventDefault();
-        const {title,amount,type,History}=this.state;
-        const newList={
-            id: uuid4(),
-            title,
-            amount,
-            type,
-        }
-        this.setState((pre)=>({
-            History: [...pre.History, newList],
-            title: '',
-            amount: '',
-            totalCount: pre.totalCount + Number(amount),
-            income: pre.income + (type === 'Income'? Number(amount) : 0),
-            express: pre.express + (type === 'Expenditure'? Number(amount) : 0),
-            
-        }))
-        
-    }
-    onDeletae=(id)=>{
-        const {History}=this.state
+    return (
+      <div className="container">
+        {/* Top Section */}
+        <div className="top-section">
+          <div className="welcome-section">
+            <h2>Hi, Nagender</h2>
+            <h3>Welcome to the MoneyManager App</h3>
+          </div>
+          <div className="summary-section">
+            <p>Total Amount: {totalCount}</p>
+            <p>Income: {income}</p>
+            <p>Expenditure: {express}</p>
+          </div>
+        </div>
 
-        const filteredList=History.filter(each=>each.id!==id);
-        this.setState({History: filteredList})
+        {/* Main Content */}
+        <div className="main-content">
+          {/* Form Section (Left Side) */}
+          <div className="form-section">
+            <form>
+              <label>Title:</label>
+              <input
+                type="text"
+                onChange={this.onTitleChange}
+                value={title}
+                placeholder="Enter the title"
+              />
+              <br />
+              <label>Amount:</label>
+              <input
+                type="number"
+                onChange={this.onAmountChange}
+                value={amount}
+                placeholder="Enter the Amount"
+              />
+              <br />
 
-    }
-    render(){
-        const {title, amount, type, totalCount, income, express, History } = this.state;
-        
-        return(
-            <div>
-                <h4>Hi, Nagender</h4>
-                <h4>Welcome to the MoneyManager App</h4>
-                <p>total amount: {totalCount}</p>
-                <p>Income: {income}</p>
-                <p>Expenditure: {express}</p>
-           
+              <label>Type:</label>
+              <select onChange={this.onTypeChange} value={type}>
+                <option value="Income">Income</option>
+                <option value="Expenditure">Expenditure</option>
+              </select>
+              <br />
 
-                <form>
-                    <label>Title:</label>
-                    <input type='text' onChange={this.onTitleChange} value={title} placeholder='Enter the title'/>
-                    <br />
-                    <label>Amount:</label>
-                    <input type='text' onChange={this.onAmountChange} value={amount} placeholder='Enter the Amount'/>
-                    <br />
-                    <button type='submit' onClick={this.onAddbalence}>Add</button>
-                </form>
-                
-                <h1>History</h1>
-                <p>Title: </p>
-                <p>Amount: </p>
-                <p>Type: </p>
+              <button type="submit" onClick={this.onAddBalance}>
+                Add
+              </button>
+            </form>
+          </div>
 
-                {History.map(eachMoney=>(
-                    <MoneyManagerContent key={eachMoney.id} eachMoney={eachMoney} onDeletae={this.onDeletae}/>
-
-                ))
-                }
-
-                
-            </div>
-        )
-    }
+          {/* History Section (Right Side) */}
+          <div className="history-section">
+            <h3>History</h3>
+            <table className="history-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {History.length > 0 ? (
+                  History.map((eachMoney) => (
+                    <MoneyManagerContent
+                      key={eachMoney.id}
+                      eachMoney={eachMoney}
+                      onDelete={this.onDelete}
+                    />
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4">No history available</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-export default MoneyManager
+
+export default MoneyManager;
