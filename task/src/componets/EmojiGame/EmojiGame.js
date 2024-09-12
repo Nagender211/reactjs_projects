@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import EmojiGameContent from './EmojiGameContent'
-import NavBar from './NavBar'
+import React, { Component } from 'react';
+import EmojiGameContent from './EmojiGameContent';
+import NavBar from './NavBar';
+import LoosGame from './LoosGame';
+import WonGame from './WonGame';
 
-
-
-
-const emojiGame=[
+const emojiGame = [
     {
         id: 1,
         emoji: 'https://media.istockphoto.com/id/2158608308/vector/smiling-face-with-heart-eyes-large-size-of-yellow-emoji-smile-with-hair.jpg?s=1024x1024&w=is&k=20&c=1DSVdueVWBJyIICNqxsvr_lNr9h_0YaMY4O1wHeZtYc=',
@@ -30,84 +29,123 @@ const emojiGame=[
         id: 5,
         emoji: 'https://media.istockphoto.com/id/1318016917/vector/halo-emoji-icon.jpg?s=1024x1024&w=is&k=20&c=6d4meduC2s5tMvDNymcFLFnO0VzMILyT-n1eXC5CnO4=',
         emojiName: 'Heart with ribbon',
-
     },
     {
         id: 6,
         emoji: 'https://media.istockphoto.com/id/1318016899/vector/awed-emoji-icon.jpg?s=1024x1024&w=is&k=20&c=Pcykq8xGqcMAgY3VupQhEQcX5uOBE9kHV7QisN4fnsM=',
         emojiName: 'Heart with green heart',
-
-    }
+    },
 ];
 
-
-
-
-
-class EmojiGame extends Component{
-    state={
+class EmojiGame extends Component {
+    state = {
         score: 0,
         highScore: 0,
         emoList: emojiGame,
-        // iscliked: false,
-        clickedEmojis: [],  // Track clicked emojis
+        clickedEmojis: [],
+        gameOver: false,
+        won: false,
+    };
 
-    }
-    shufflingArray=(array)=>{
-        const newAraary=[...array];
-    
-        for(let i=newAraary.length-1; i>0; i--){
+    // Shuffle the array
+    shufflingArray = (array) => {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-
-            [newAraary[i], newAraary[j]]=[newAraary[j], newAraary[i]];
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
         }
-        return newAraary;
+        return newArray;
+    };
 
-    }
-    
-    onclickEmoji=(id)=>{
-        const {clickedEmojis}=this.state;
-        const shufflingArrayList=this.shufflingArray([...this.state.emoList])
+    // Handle emoji click
+    onclickEmoji = (id) => {
+        const { clickedEmojis, score, highScore } = this.state;
+        const shuffledArray = this.shufflingArray([...this.state.emoList]);
 
-        if(clickedEmojis.includes(id)){
-            this.setState((pre)=>({
-                highScore: pre.score,
+        // Check if the emoji was already clicked
+        if (clickedEmojis.includes(id)) {
+            // Game over, update high score if needed
+            this.setState({
+                highScore: Math.max(highScore, score),
                 score: 0,
-            }))
-            console.log("same id is clicked you loos please play again");
-
-        }else{
-            this.setState(pre=>({
-                score: pre.score+1,
-                emoList: shufflingArrayList,
-                clickedEmojis: [...pre.clickedEmojis, id],
-                // highScore: Math.max(pre.score, pre.highScore),
-          
-    
-    
-            }))
-
+                gameOver: true,
+                won: false,
+            });
+            console.log("Same id clicked, you lose. Please play again.");
+        } else if (clickedEmojis.length + 1 === emojiGame.length) {
+            // If all emojis are clicked, the player wins
+            this.setState({
+                gameOver: true,
+                won: true,
+                score: score + 1,
+                highScore: Math.max(highScore, score + 1),
+                clickedEmojis: [],
+            });
+        } else {
+            // Continue the game
+            this.setState((prevState) => ({
+                score: prevState.score + 1,
+                emoList: shuffledArray,
+                clickedEmojis: [...prevState.clickedEmojis, id],
+            }));
         }
-        
-        
-        
-        console.log(`emoji ${id} clicked`)
+    };
 
-    
-    }
-    render(){
-       
+    // Reset game for "Play Again" button
+    resetGame = () => {
+        this.setState({
+            score: 0,
+            clickedEmojis: [],
+            gameOver: false,
+            won: false,
+            emoList: this.shufflingArray(emojiGame),
+        });
+    };
+
+    // Reset both score and high score for the "Reset All" button
+    resetAll = () => {
+        this.setState({
+            score: 0,
+            highScore: 0,
+            clickedEmojis: [],
+            gameOver: false,
+            won: false,
+            emoList: this.shufflingArray(emojiGame),
+        });
+    };
+
+    render() {
+        const { score, highScore, gameOver, won } = this.state;
+
+        if (gameOver) {
+            // If game over, show either LoosGame or WonGame
+            return (
+                <div>
+                    <NavBar score={score} highScore={highScore} />
+                    {won ? (
+                        <WonGame resetGame={this.resetGame} resetAll={this.resetAll} />
+                    ) : (
+                        <LoosGame resetGame={this.resetGame} resetAll={this.resetAll} />
+                    )}
+                </div>
+            );
+        }
+
         return (
             <div>
                 <NavBar score={this.state.score} highScore={this.state.highScore} />
-               
-                {this.state.emoList.map(eachEmoji=>(
-                    <EmojiGameContent key={eachEmoji.id} id={eachEmoji.id}  emoji={eachEmoji.emoji} emojiName={eachEmoji.emojiName} onclickEmoji={this.onclickEmoji}/>
+                {this.state.emoList.map((eachEmoji) => (
+                    <EmojiGameContent
+                        key={eachEmoji.id}
+                        id={eachEmoji.id}
+                        emoji={eachEmoji.emoji}
+                        emojiName={eachEmoji.emojiName}
+                        onclickEmoji={this.onclickEmoji}
+                    />
                 ))}
-                
             </div>
-        )
+        );
     }
 }
 
-export default EmojiGame
+export default EmojiGame;
