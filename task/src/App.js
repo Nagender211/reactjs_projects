@@ -2,6 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
+import EmojiGame from './componets/EmojiGame/EmojiGame';
+
 import AppointmentsApp from './componets/AppointmentsApp/AppointmentsApp';
 import MoneyManager from './componets/MoneyManager/MoneyManager';
 // import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
@@ -666,7 +668,8 @@ class App extends Component{
           {/* <ContactUpadate /> */}
           {/* <CommensApp /> */}
           {/* <AppointmentsApp /> */}
-          <MoneyManager />
+          {/* <MoneyManager /> */}
+          <EmojiGame />
           {/* <div>
           <ul>
 
