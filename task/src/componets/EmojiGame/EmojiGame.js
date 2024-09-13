@@ -3,6 +3,8 @@ import EmojiGameContent from './EmojiGameContent';
 import NavBar from './NavBar';
 import LoosGame from './LoosGame';
 import WonGame from './WonGame';
+import './EmojiGame.css';
+
 
 const emojiGame = [
     {
@@ -35,6 +37,22 @@ const emojiGame = [
         emoji: 'https://media.istockphoto.com/id/1318016899/vector/awed-emoji-icon.jpg?s=1024x1024&w=is&k=20&c=Pcykq8xGqcMAgY3VupQhEQcX5uOBE9kHV7QisN4fnsM=',
         emojiName: 'Heart with green heart',
     },
+    {
+        id: 7,
+        emoji: 'https://toppng.com/uploads/preview/sad-emoji-png-pic-115455082153aswbve4fc.png',
+        emojiName: 'Grinning face',
+    },
+    {
+        id: 8,
+        emoji: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbf7AavhDU54ITuBnqRAQGP3YR8Hnvy1Szxw&s',
+        emojiName: 'Smiling face with open mouth',
+
+    },
+    {
+        id: 9,
+        emoji: 'https://www.adnradio.cl/resizer/v2/Y5TOOUCOSVII7D6DB6SAWJHXNU.jpg?auth=190e3f9699da225c97ccbfd00d63cf610b7e365f59db220cd8bcf68f2336cb09&width=768&height=576&quality=70&smart=true',
+        emojiName: 'Smiling face with sunglasses',
+    }
 ];
 
 class EmojiGame extends Component {
@@ -134,15 +152,17 @@ class EmojiGame extends Component {
         return (
             <div>
                 <NavBar score={this.state.score} highScore={this.state.highScore} />
-                {this.state.emoList.map((eachEmoji) => (
-                    <EmojiGameContent
-                        key={eachEmoji.id}
-                        id={eachEmoji.id}
-                        emoji={eachEmoji.emoji}
-                        emojiName={eachEmoji.emojiName}
-                        onclickEmoji={this.onclickEmoji}
-                    />
-                ))}
+                <div className="emoji-grid">
+          {this.state.emoList.map((eachEmoji) => (
+            <EmojiGameContent
+              key={eachEmoji.id}
+              id={eachEmoji.id}
+              emoji={eachEmoji.emoji}
+              emojiName={eachEmoji.emojiName}
+              onclickEmoji={this.onclickEmoji}
+            />
+          ))}
+        </div>
             </div>
         );
     }
