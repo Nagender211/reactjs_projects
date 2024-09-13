@@ -36,6 +36,7 @@ class DititalClockContent extends Component {
     this.setState({
       play: false,
       timeFrame: 25 * 60,
+      count: 25,
     });
   };
 
