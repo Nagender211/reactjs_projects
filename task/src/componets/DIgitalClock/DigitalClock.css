@@ -1,0 +1,105 @@
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .digital-clock {
+    text-align: center;
+    padding: 20px;
+    background-color: #282c34;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .play-pause-btn, .reset-btn, .increment-btn {
+    background-color: #21a1f1;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .play-pause-btn:hover, .reset-btn:hover, .increment-btn:hover {
+    background-color: #61dafb;
+  }
+  
+  .timer-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .time-frame {
+    font-size: 60px;
+    color: #ffffff;
+    background-image: url('https://assets.ccbp.in/frontend/react-js/digital-timer-elapsed-bg.png');
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    border-radius: 10px;
+    width: 240px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+  }
+  
+  .increment-decrement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .increment-btn {
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    background-color: #61dafb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .increment-btn:hover {
+    background-color: #21a1f1;
+  }
+  
+  img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  
+  p {
+    font-size: 24px;
+    margin: 0 20px;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 768px) {
+    .digital-clock {
+      max-width: 100%;
+      padding: 10px;
+    }
+  
+    .time-frame {
+      font-size: 40px;
+      padding: 20px;
+    }
+  }
+  
