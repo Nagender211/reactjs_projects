@@ -4,6 +4,8 @@ import './App.css';
 
 import EmojiGame from './componets/EmojiGame/EmojiGame';
 
+import Clock from './componets/Clock/Clock';
+
 import AppointmentsApp from './componets/AppointmentsApp/AppointmentsApp';
 import MoneyManager from './componets/MoneyManager/MoneyManager';
 // import CapitalsApp from './componets/CapitalsApp/CapitalsApp';
@@ -669,7 +671,8 @@ class App extends Component{
           {/* <CommensApp /> */}
           {/* <AppointmentsApp /> */}
           {/* <MoneyManager /> */}
-          <EmojiGame />
+          {/* <EmojiGame /> */}
+          <Clock />
           {/* <div>
           <ul>
 
