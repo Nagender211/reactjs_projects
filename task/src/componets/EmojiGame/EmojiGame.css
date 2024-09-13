@@ -1,19 +1,19 @@
-Add a global reset
-* {
+/* Add a global reset */
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-  }
+  } */
   
   /* Styling for the body */
-  body {
+  /* body {
     background-color: #f9f9f9;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
+  } */
   
   /* Navbar styles */
   nav {

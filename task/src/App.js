@@ -2,6 +2,9 @@
 import { Component } from 'react';
 import './App.css';
 
+
+import Faqs from './componets/Faqs/Faqs';
+
 import EmojiGame from './componets/EmojiGame/EmojiGame';
 
 import Clock from './componets/Clock/Clock';
@@ -680,7 +683,8 @@ class App extends Component{
           {/* <EmojiGame /> */}
           {/* <Clock /> */}
           {/* <DigitalClock /> */}
-          <StopStart />
+          {/* <StopStart /> */}
+          <Faqs />
           {/* <div>
           <ul>
 

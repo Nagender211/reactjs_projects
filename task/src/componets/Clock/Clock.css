@@ -1,19 +1,19 @@
 /* General reset */
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-  }
+  } */
   
   /* Body styling */
-  body {
+  /* body {
     background-color: #f0f4f8;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
+    height: 100vh; */
+  /* } */
   
   /* Container for clock app */
   .clock-app {
