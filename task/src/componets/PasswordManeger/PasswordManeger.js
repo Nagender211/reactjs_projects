@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Maneger from './Maneger';
 import { v4 as uuid4 } from 'uuid';
+import './Manger.css'
 
 class PasswordManeger extends Component {
     state = {
@@ -91,50 +92,58 @@ class PasswordManeger extends Component {
         const { filteredWebsites, websiteName, username, password, showPassword, count } = this.state;
 
         return (
-            <div>
+            <div className="container">
+    <input
+        type="search"
+        placeholder="Please search by website name"
+        onChange={this.onSearch}
+        className="search-input"
+    />
+    <div className="flex-container">
+        <div className="form-section">
+            <form>
                 <input
-                    type='search'
-                    placeholder='please search by website name'
-                    onChange={this.onSearch}
+                    type="text"
+                    placeholder="Enter your website name"
+                    onChange={this.onWebsite}
+                    value={websiteName}
                 />
-                <form>
-                    <input
-                        type='text'
-                        placeholder='Enter your website Name'
-                        onChange={this.onWebsite}
-                        value={websiteName}
-                    />
-                    <input
-                        type='text'
-                        placeholder='Enter your username'
-                        onChange={this.onUsername}
-                        value={username}
-                    />
-                    <input
-                        type='password'
-                        placeholder='Enter your password'
-                        onChange={this.onPassword}
-                        value={password}
-                    />
-                    <button type='submit' onClick={this.onSubmit}>
-                        Submit
-                    </button>
-                </form>
-                <button onClick={this.toggleEvent}>
-                    {showPassword ? 'Show Password' : 'Hide Password'}
+                <input
+                    type="text"
+                    placeholder="Enter your username"
+                    onChange={this.onUsername}
+                    value={username}
+                />
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    onChange={this.onPassword}
+                    value={password}
+                />
+                <button type="submit" onClick={this.onSubmit}>
+                    Submit
                 </button>
-                <h1>Count: {count}</h1>
+            </form>
+            <button onClick={this.toggleEvent} className="toggle-password-btn">
+                {showPassword ? "Show Password" : "Hide Password"}
+            </button>
+        </div>
 
-                {filteredWebsites.map((eachwebsite) => (
-                    <Maneger
-                        key={eachwebsite.id}
-                        website={eachwebsite}
-                        maskPassword={this.maskPassword}
-                        showPassword={showPassword}
-                        onDelete={this.onDelete}
-                    />
-                ))}
-            </div>
+        <div className="content-section">
+            <h1>Stored Passwords: {count}</h1>
+            {filteredWebsites.map((eachwebsite) => (
+                <Maneger
+                    key={eachwebsite.id}
+                    website={eachwebsite}
+                    maskPassword={this.maskPassword}
+                    showPassword={showPassword}
+                    onDelete={this.onDelete}
+                />
+            ))}
+        </div>
+    </div>
+           </div>
+
         );
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Manger.css'
 const Maneger = (props) => {
     const {website,maskPassword,showPassword,onDelete}=props;
     const {websiteName,name,username,password,id,count}=website;
@@ -18,7 +18,7 @@ const Maneger = (props) => {
 
 
   return (
-    <div>
+    <div className='manager-item'>
      
       <h2>{name}</h2>
       <p> {username}</p>
