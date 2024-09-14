@@ -3,6 +3,9 @@ import { Component } from 'react';
 import './App.css';
 
 
+
+import PasswordManeger from './componets/PasswordManeger/PasswordManeger';
+
 import Faqs from './componets/Faqs/Faqs';
 
 import EmojiGame from './componets/EmojiGame/EmojiGame';
@@ -684,7 +687,8 @@ class App extends Component{
           {/* <Clock /> */}
           {/* <DigitalClock /> */}
           {/* <StopStart /> */}
-          <Faqs />
+          {/* <Faqs /> */}
+          <PasswordManeger />
           {/* <div>
           <ul>
 
