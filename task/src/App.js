@@ -3,6 +3,8 @@ import { Component } from 'react';
 import './App.css';
 
 
+import MatchGame from './componets/MatchGame/MatchGame';
+
 
 import PasswordManeger from './componets/PasswordManeger/PasswordManeger';
 
@@ -688,7 +690,8 @@ class App extends Component{
           {/* <DigitalClock /> */}
           {/* <StopStart /> */}
           {/* <Faqs /> */}
-          <PasswordManeger />
+          {/* <PasswordManeger /> */}
+          <MatchGame />
           {/* <div>
           <ul>
 
