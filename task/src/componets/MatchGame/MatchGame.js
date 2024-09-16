@@ -2,185 +2,203 @@ import React, { Component } from 'react'
 import MatchGameContent from './MatchGameContent';
 import TabNnavigation from './TabNnavigation';
 
-
-const FruitList=[
-    {
-        id: 1,
-        name: 'Apple',
-        imgUrl: ''
-    },
-    {
-        id: 2,
-        name: 'Banana',
-        imgUrl: ''
-    },
-    {
-        id: 3,
-        name: 'Cherry',
-        imgUrl: ''
-    },
-    {
-        id: 4,
-        name: 'Dragon Fruit',
-        imgUrl: ''
-    },
-    {
-        id: 5,
-        name: 'Grape',
-        imgUrl: ''
-    },
-    {
-        id: 6,
-        name: 'Kiwi',
-        imgUrl: ''
-    },
-    {
-        id: 7,
-        name: 'Lemon',
-        imgUrl: ''
-    },
-    {
-        id: 8,
-        name: 'Mango',
-        imgUrl: ''
-    },
-    {
-        id: 9,
-        name: 'Orange',
-        imgUrl: ''
-    },
-    {
-        id: 10,
-        name: 'Pineapple',
-        imgUrl: ''
-    }
-];
-
-const Animals=[
-    {
-        id: 1,
-        name: 'Elephant',
-        imgUrl: ''
-    },
-    {
-        id: 2,
-        name: 'Giraffe',
-        imgUrl: ''
-    },
-    {
-        id: 3,
-        name: 'Hippopotamus',
-        imgUrl: ''
-    },
-    {
-        id: 4,
-        name: 'Iguana',
-        imgUrl: ''
-    },
-    {
-        id: 5,
-        name: 'Jaguar',
-        imgUrl: ''
-    },
-    {
-        id: 6,
-        name: 'Kangaroo',
-        imgUrl: ''
-    },
-    {
-        id: 7,
-        name: 'Lion',
-        imgUrl: ''
-    },
-    {
-        id: 8,
-        name: 'Monkey',
-        imgUrl: ''
-    },
-    {
-        id: 9,
-        name: 'Narwhal',
-        imgUrl: ''
-    },
-    {
-        id: 10,
-        name: 'Octopus',
-        imgUrl: ''
-    }
-
-];
-
-const Places=[
-    {
-        id: 1,
-        name: 'Beach',
-        imgUrl: ''
-    },
-    {
-        id: 2,
-        name: 'Mountain',
-        imgUrl: ''
-    },
-    {
-        id: 3,
-        name: 'Forest',
-        imgUrl: ''
-    },
-    {
-        id: 4,
-        name: 'Desert',
-        imgUrl: ''
-    },
-    {
-        id: 5,
-        name: 'River',
-        imgUrl: ''
-    },
-    {
-        id: 6,
-        name: 'Sea',
-        imgUrl: ''
-    },
-    {
-        id: 7,
-        name: 'Sky',
-        imgUrl: ''
-    },
-    {
-        id: 8,
-        name: 'Cave',
-        imgUrl: ''
-    },
-    {
-        id: 9,
-        name: 'Ocean',
-        imgUrl: ''
-    },
-    {
-        id: 10,
-        name: 'Valley',
-        imgUrl: ''
-    }
+const TabItem=[
+    {tabId: 'FRUIT',title: 'Fruits'},
+    
+    {tabId: 'ANIMAL',title: 'Animals'},
+    {tabId: 'PLACE',title: 'Places'}
 ]
-
-
+const projerctItems=[
+    {
+        projectId: 0,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 1,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 2,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 3,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 4,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 5,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 6,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 7,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 8,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 9,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 10,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 11,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 12,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 13,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 14,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 15,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 16,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 17,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 18,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 19,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 20,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 21,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 22,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 23,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 24,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 25,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 26,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 27,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+    {
+        projectId: 28,
+        catagery: 'ANIMAL',
+        imgUrl: '',
+    },
+    {
+        projectId: 29,
+        catagery: 'PLACE',
+        imgUrl: '',
+    },
+    {
+        projectId: 30,
+        catagery: 'FRUIT',
+        imgUrl: '',
+    },
+   
+]
 class MatchGame extends Component{
     state={
-        fruit: FruitList,
-        animal: Animals,
-        place: Places,
-        selectedFruit: null,
-        selectedAnimal: null,
-        selectedPlace: null
+        activeTabId: TabItem[0].tabId
     }
 
+    getFillterIteam =()=>{
+        const {activeTabId}=this.state
+        const fillteredList=projerctItems.filter(eeachProject=> eeachProject.catagery === activeTabId)
+        return fillteredList
+    }
+    update=(tabId)=>{
+        this.setState({activeTabId: tabId})
+        console.log(`the tab id is: ${tabId}`)
 
-    render(){
+    }
+
+   
+    render()
+    {
+        const fillteredList=this.getFillterIteam();
+        // const {TabItem,projerctItems,projectId}=this.state
+       
         return (
+            
             <div>
-                <TabNnavigation />
+               {TabItem.map((eachTab)=>(
+                <TabNnavigation tabId={eachTab.tabId} eachTab={eachTab} update={this.update}/>
+
+               ))}
                 <h1>Match Game </h1>
-                <MatchGameContent />
+                {fillteredList.map((eachfillter)=>(
+                    <MatchGameContent eachfillter={eachfillter} projectId={eachfillter.projectId}/>
+                ))}
             </div>
         )
     }

@@ -1,12 +1,17 @@
 import React from 'react'
 
-const TabNnavigation = () => {
+const TabNnavigation = (props) => {
+    const {eachTab,update}=props;
+    const {tabId,title}=eachTab;
+    const handleClick = () => {
+        update(tabId)
+    }
   return (
     <div>
-      <button>Fruits</button>
-      <button>Animals</button>
-      <button>Places</button>
-      
+      <button onClick={handleClick}>
+        {title}
+      </button>
+
     </div>
   )
 }
