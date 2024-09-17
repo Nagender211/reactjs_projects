@@ -3,7 +3,12 @@ import { Component } from 'react';
 import './App.css';
 
 
+import Spa from './componets/Spa/Spa';
+
 import MatchGame from './componets/MatchGame/MatchGame';
+
+
+
 
 
 import PasswordManeger from './componets/PasswordManeger/PasswordManeger';
@@ -441,7 +446,7 @@ import Welcome from './componets/Welcome/Welcome';
 class App extends Component{
 
 // state={activeCountry: CapicalList[0].id}
-// state={acttiveTabId: tabList[0].tabId,'serachState': ''}
+// state={acttiveTabId: tabList[0].taIdb,'serachState': ''}
 
 
 
@@ -691,7 +696,8 @@ class App extends Component{
           {/* <StopStart /> */}
           {/* <Faqs /> */}
           {/* <PasswordManeger /> */}
-          <MatchGame />
+          {/* <MatchGame /> */}
+          <Spa />
           {/* <div>
           <ul>
 
