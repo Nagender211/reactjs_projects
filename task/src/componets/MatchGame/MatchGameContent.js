@@ -1,15 +1,23 @@
-import React from 'react'
+import React from 'react';
 
 const MatchGameContent = (props) => {
-    const {eachfillter}=props;
-    const {catagery,imgUrl}=eachfillter
-  return (
-    <div>
-      <h1>Hello THIS THE MatchGameContent</h1>
-      <h1>{catagery}</h1>
-      <img src={imgUrl} alt={catagery} />
-    </div>
-  )
-}
+    const { eachFilter, onUpdatePhoto } = props;
+    const { imgUrl, catagery } = eachFilter;
 
-export default MatchGameContent
+    const updateThePhoto = () => {
+        onUpdatePhoto(imgUrl);  // Pass the image URL to update the main image
+    };
+
+    return (
+        <div>
+            <img
+                src={imgUrl}
+                alt={catagery}
+                onClick={updateThePhoto}
+                style={{ display: 'flex', height: '100px', width: '100px', justifyContent: 'center', alignItems: 'center' }}
+            />
+        </div>
+    );
+};
+
+export default MatchGameContent;
