@@ -2,6 +2,7 @@
 import { Component } from 'react';
 import './App.css';
 
+import BlogList from './componets/BlogLlist/BlogList';
 
 import RoutePartice from './componets/RoutePratice/RoutePartice';
 
@@ -700,7 +701,8 @@ class App extends Component{
           {/* <PasswordManeger /> */}
           {/* <MatchGame /> */}
           {/* <Spa /> */}
-          <RoutePartice />
+          {/* <RoutePartice /> */}
+          <BlogList />
           {/* <div>
           <ul>
 
