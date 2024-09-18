@@ -3,6 +3,8 @@ import { Component } from 'react';
 import './App.css';
 
 
+import RoutePartice from './componets/RoutePratice/RoutePartice';
+
 import Spa from './componets/Spa/Spa';
 
 import MatchGame from './componets/MatchGame/MatchGame';
@@ -697,7 +699,8 @@ class App extends Component{
           {/* <Faqs /> */}
           {/* <PasswordManeger /> */}
           {/* <MatchGame /> */}
-          <Spa />
+          {/* <Spa /> */}
+          <RoutePartice />
           {/* <div>
           <ul>
 
