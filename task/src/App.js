@@ -2,6 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
+import ApiBlog from './componets/ApiRoute/ApiBlog';
+
 import BlogList from './componets/BlogLlist/BlogList';
 
 import RoutePartice from './componets/RoutePratice/RoutePartice';
@@ -702,7 +704,8 @@ class App extends Component{
           {/* <MatchGame /> */}
           {/* <Spa /> */}
           {/* <RoutePartice /> */}
-          <BlogList />
+          {/* <BlogList /> */}
+          <ApiBlog />
           {/* <div>
           <ul>
 
