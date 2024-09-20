@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import BlogItems from './BlogItems';
-import './BlogList.css'; // Add the CSS file
+import './BlogList.css'; 
+import { TailSpin } from 'react-loader-spinner'; 
+// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 class BlogList extends Component {
     state = {
-        blogList: []
+        blogList: [],
+        isLoading: true,
     }
 
     componentDidMount() {
@@ -14,16 +17,20 @@ class BlogList extends Component {
     getApiCall = async () => {
         const response = await fetch('https://apis.ccbp.in/blogs');
         const data = await response.json();
-        this.setState({ blogList: data });
+        this.setState({ blogList: data, isLoading: false }); 
     }
 
     render() {
-        const { blogList } = this.state;
+        const { blogList, isLoading } = this.state;
         return (
             <div className="blog-list">
-                {blogList.map((items) => (
-                    <BlogItems items={items} key={items.id} />
-                ))}
+                {isLoading ? (
+                    <TailSpin color="#00BFFF" height={50} width={50} />
+                ) : (
+                    blogList.map((items) => (
+                        <BlogItems items={items} key={items.id} />
+                    ))
+                )}
             </div>
         );
     }
