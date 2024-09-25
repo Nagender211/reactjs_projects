@@ -16,7 +16,7 @@ const FetchRoute = () => {
             <Route exact path='/' element={<BlogListDisplay />} />
             <Route exact path='/about' element={<About />} />
             <Route exact path='/contact' element={<Contact />} />
-            <Route exact path='/:id' element={<BlogListDeatials />} />  {/* dynamic routing */}
+            <Route exact path='/blogs/:id' element={<BlogListDeatials />} />  {/* dynamic routing */}
             <Route path='*' element={<NotFound />} />
 
 
