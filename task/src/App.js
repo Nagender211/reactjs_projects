@@ -74,6 +74,7 @@ import Counter from './componets/Counter/Counter';
 import FruitsCounter from './componets/Fruits Counter/FruitsCounter';
 import SpeedoMeter from './componets/SpeeddoMeter/SpeedoMeter';
 import Welcome from './componets/Welcome/Welcome';
+import BitCoin from './componets/BitCoin/BitCoin';
 // import ReusableBanners from './componets/Reusable Banners/ReusableBanners';
 // import UserProfile from './componets/UserProfile/UserProfile';
 
@@ -709,7 +710,8 @@ class App extends Component{
           {/* <RoutePartice /> */}
           {/* <BlogList /> */}
           {/* <ApiBlog /> */}
-          <FetchRoute />
+          {/* <FetchRoute /> */}
+          <BitCoin />
           {/* <div>
           <ul>
 
