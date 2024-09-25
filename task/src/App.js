@@ -2,6 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
+import FetchRoute from './componets/FetchRoute/FetchRoute';
+
 import ApiBlog from './componets/ApiRoute/ApiBlog';
 
 import BlogList from './componets/BlogLlist/BlogList';
@@ -11,6 +13,7 @@ import RoutePartice from './componets/RoutePratice/RoutePartice';
 import Spa from './componets/Spa/Spa';
 
 import MatchGame from './componets/MatchGame/MatchGame';
+
 
 
 
@@ -705,7 +708,8 @@ class App extends Component{
           {/* <Spa /> */}
           {/* <RoutePartice /> */}
           {/* <BlogList /> */}
-          <ApiBlog />
+          {/* <ApiBlog /> */}
+          <FetchRoute />
           {/* <div>
           <ul>
 
