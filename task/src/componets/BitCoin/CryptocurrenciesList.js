@@ -5,6 +5,7 @@ const CryptocurrenciesList = (props) => {
     const {currencyName,usdValue,euroValue,currencyLogo,id}=item;
   return (
     <div>
+        
       <img src={currencyLogo} alt={currencyName} />
       <h3>{currencyName}</h3>
       <p>USD: {usdValue}</p>

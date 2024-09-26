@@ -28,8 +28,11 @@ class CryptocurrencyItem extends Component{
         const { cryptoData,isLoading } = this.state;
       return (
         <div>
+            
             {isLoading ? ( <TailSpin color="#00BFFF" height={50} width={50} />): 
-            (cryptoData.map(item=>(
+            (
+                
+                cryptoData.map(item=>(
                 <CryptocurrenciesList item={item} key={item.id} />
             )))}
           

@@ -1,22 +1,21 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import CryptocurrencyItem from './CryptocurrencyItem'
+import DashBoardItems from './DashBoardItems'
+import DashBoardDatials from './DashBoardDatials'
 import NotFound from './NotFound'
 
-const BitCoin = () => {
+const IplDashBoard = () => {
   return (
     <div>
-        
       <BrowserRouter>
-      
       <Routes>
-        <Route path='/' element={<CryptocurrencyItem />}/>
+        <Route path='/' element={<DashBoardItems />} />
+        <Route path='/team-match/:id' element={<DashBoardDatials />} />
         <Route path='*' element={<NotFound />} />
-
       </Routes>
       </BrowserRouter>
     </div>
   )
 }
 
-export default BitCoin
+export default IplDashBoard
