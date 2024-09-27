@@ -1,0 +1,35 @@
+.debug-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+h1 {
+    font-size: 48px; /* Adjust the size as needed */
+    color: #333; /* Change to your preferred color */
+    margin: 0; /* Remove default margin */
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+button:disabled {
+    background-color: #ccc; /* Disabled button color */
+    cursor: not-allowed; /* Change cursor on disabled */
+}
