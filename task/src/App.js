@@ -76,6 +76,7 @@ import SpeedoMeter from './componets/SpeeddoMeter/SpeedoMeter';
 import Welcome from './componets/Welcome/Welcome';
 import BitCoin from './componets/BitCoin/BitCoin';
 import IplDashBoard from './componets/IplDashBoard/IplDashBoard';
+import DebugClock from './componets/DebugClock/DebugClock';
 // import ReusableBanners from './componets/Reusable Banners/ReusableBanners';
 // import UserProfile from './componets/UserProfile/UserProfile';
 
@@ -713,7 +714,8 @@ class App extends Component{
           {/* <ApiBlog /> */}
           {/* <FetchRoute /> */}
           {/* <BitCoin /> */}
-          <IplDashBoard />
+          {/* <IplDashBoard /> */}
+          <DebugClock />
           {/* <div>
           <ul>
 
