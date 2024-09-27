@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import {component} from 'react' 
 
-const Clock = () => {
-  return (
-    <div>
-      <h1>Clock</h1>
-    </div>
-  )
+class Clock extends component{
+  render(){
+    return (
+      <div>this the alaram clcok</div>
+    )
+  }
+
 }
 
 export default Clock
