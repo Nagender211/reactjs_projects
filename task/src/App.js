@@ -77,6 +77,7 @@ import Welcome from './componets/Welcome/Welcome';
 import BitCoin from './componets/BitCoin/BitCoin';
 import IplDashBoard from './componets/IplDashBoard/IplDashBoard';
 import DebugClock from './componets/DebugClock/DebugClock';
+import DebugBlog from './componets/DebugBlogLlist/DebugBlog';
 // import ReusableBanners from './componets/Reusable Banners/ReusableBanners';
 // import UserProfile from './componets/UserProfile/UserProfile';
 
@@ -715,7 +716,8 @@ class App extends Component{
           {/* <FetchRoute /> */}
           {/* <BitCoin /> */}
           {/* <IplDashBoard /> */}
-          <DebugClock />
+          {/* <DebugClock /> */}
+          <DebugBlog />
           {/* <div>
           <ul>
 
