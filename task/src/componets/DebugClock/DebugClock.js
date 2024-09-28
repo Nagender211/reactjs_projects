@@ -4,7 +4,7 @@ import Clock from './Clock'
 class DebugClock extends Component{
     state={
         count: 0,
-        min: 0
+        min: 25
        
     }
     timeCOunt=()=>{
@@ -46,10 +46,25 @@ class DebugClock extends Component{
         
     }
     restBtn=()=>{
-        this.setState({count: 0})
+        this.setState({count: 0,min: 25})
         console.log("timer is reset")
         clearInterval(this.interval);
         this.interval = null;
+    }
+    increment=()=>{
+        if(this.state.min>=25){
+            this.setState(prevState => ({
+                min: prevState.min + 1
+            }));
+        }
+       
+    }
+    decrement=()=>{
+        if(this.state.min>25){
+            this.setState(prevState => ({
+                min: prevState.min - 1
+            }));
+        }
     }
     
     componentDidMount(){
@@ -63,6 +78,7 @@ class DebugClock extends Component{
         clearInterval(this.interval)
 
     }
+
     
     
     
@@ -81,7 +97,13 @@ class DebugClock extends Component{
                 <button onClick={this.toggelBtn}>Start</button>
                 <button onClick={this.toggelBtnStop}>Stop</button>
                 <button onClick={this.restBtn}>Reset</button>
-                <Clock />
+
+
+                <h1>{min}</h1>
+                <h1>This the Clock project </h1>
+                <button onClick={this.increment}>+</button>
+                <button onClick={this.decrement}>-</button>
+                {/* <Clock min={min}/> */}
             </div>
         )
     }
