@@ -2,6 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
+import DebugIpl from './componets/DebugIpl/DebugIpl'
+
 import FetchRoute from './componets/FetchRoute/FetchRoute';
 
 import ApiBlog from './componets/ApiRoute/ApiBlog';
@@ -717,7 +719,8 @@ class App extends Component{
           {/* <BitCoin /> */}
           {/* <IplDashBoard /> */}
           {/* <DebugClock /> */}
-          <DebugBlog />
+          {/* <DebugBlog /> */}
+          <DebugIpl />
           {/* <div>
           <ul>
 
