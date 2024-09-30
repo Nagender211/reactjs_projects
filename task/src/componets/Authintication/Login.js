@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 // import { json } from 'react-router-dom';
+import {Navigate} from 'react-router-dom'
 
 class Login extends Component{
     state={
         username: '',
-        password: ''
+        password: '',
+        isLoggedIn: false,
+        error: ''
+    }
+    onSuccesSubmit=()=>{
+        console.log("loggin succefuly")
+        this.setState({isLoggedIn: true})
     }
     onSubmitForm=async(e)=>{
         e.preventDefault();
@@ -18,7 +25,12 @@ class Login extends Component{
     };
     const response = await fetch(url,options);
     const data = await response.json();
-    console.log(data);
+    if(response.ok === true){
+        this.onSuccesSubmit();
+    }else{
+        this.setState({error: "*userName and password is not matched"})
+        // console.log("error page is valid")
+    }
     }
     userNameChange=(e)=>{
         this.setState({username: e.target.value})
@@ -31,28 +43,32 @@ class Login extends Component{
         return (
             <div>
                  <label htmlFor="password">Password:</label>
-                {/* <input type="password" value={this.state.password} onChange={(e)=>this.setState({password:e.target.value})} /> */}
                 <input type='password' id='password' value={password} onChange={this.passwordChange} />
             </div>
         )
     }
     renderUuserName=()=>{
-        const {username} = this.state
+        const {username} = this.state;
+        
         return (
             <div>
                 <label htmlFor='username'>User Name:</label>
-                {/* <input type="text" value={this.state.userName} onChange={(e)=>this.setState({userName:e.target.value})} /> */}
                 <input type='text' id='username' value={username} onChange={this.userNameChange} />
             </div>
         )
     }
     render() {
+        const {isLoggedIn,error}=this.state;
+        if(isLoggedIn){
+            return <Navigate to='/' />
+        }
       return (
         <div>
             <form onSubmit={this.onSubmitForm}>
             <div>{this.renderUuserName()}</div>
             <div>{this.renderPassword()}</div>
             <button type='submit '>Login</button>
+            <p style={{color: 'red', font: '2px'}}>{error}</p>
 
             </form>
            

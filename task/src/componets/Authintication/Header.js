@@ -18,8 +18,8 @@ const Header = () => {
         <Link to="/products" className="nav-link">
           <li>Products</li>
         </Link>
-        <Link to="/cart" className="nav-link">
-          <li>Cart</li>
+        <Link to="/card" className="nav-link">
+          <li>Card</li>
         </Link>
       </ul>
       <button type="button" className="logout-desktop-btn">
