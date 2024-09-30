@@ -81,6 +81,7 @@ import IplDashBoard from './componets/IplDashBoard/IplDashBoard';
 import DebugClock from './componets/DebugClock/DebugClock';
 import DebugBlog from './componets/DebugBlogLlist/DebugBlog';
 import Authintication from './componets/Authintication/Authintication';
+import Registration from './componets/Registration/Registration';
 // import ReusableBanners from './componets/Reusable Banners/ReusableBanners';
 // import UserProfile from './componets/UserProfile/UserProfile';
 
@@ -722,7 +723,8 @@ class App extends Component{
           {/* <DebugClock /> */}
           {/* <DebugBlog /> */}
           {/* <DebugIpl /> */}
-          <Authintication />
+          {/* <Authintication /> */}
+          <Registration />
           {/* <div>
           <ul>
 
