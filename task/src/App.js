@@ -80,6 +80,7 @@ import BitCoin from './componets/BitCoin/BitCoin';
 import IplDashBoard from './componets/IplDashBoard/IplDashBoard';
 import DebugClock from './componets/DebugClock/DebugClock';
 import DebugBlog from './componets/DebugBlogLlist/DebugBlog';
+import Authintication from './componets/Authintication/Authintication';
 // import ReusableBanners from './componets/Reusable Banners/ReusableBanners';
 // import UserProfile from './componets/UserProfile/UserProfile';
 
@@ -720,7 +721,8 @@ class App extends Component{
           {/* <IplDashBoard /> */}
           {/* <DebugClock /> */}
           {/* <DebugBlog /> */}
-          <DebugIpl />
+          {/* <DebugIpl /> */}
+          <Authintication />
           {/* <div>
           <ul>
 
