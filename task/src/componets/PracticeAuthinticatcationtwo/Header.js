@@ -17,11 +17,13 @@ const Header = () => {
          <ul>
             <li>
                 <Link to='/'>
-                Home</Link>
+                    Home
+                </Link>
             </li>
             <li>
-                <Link to='/card'>
-                Card</Link>
+                {/* <Link to='/card'>
+                   Card
+                </Link> */}
             </li>
             <li>
                 <Link to='/products'>
