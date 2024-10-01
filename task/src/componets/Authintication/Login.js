@@ -10,7 +10,8 @@ class Login extends Component{
         password: '',
         isLoggedIn: false,
         showError: false,
-        error: ''
+        error: '',
+        isLoding: true,
     }
     onSuccesSubmit=(jwtToken)=>{
         Cookies.set('jwt-token', jwtToken, {expires: 7})

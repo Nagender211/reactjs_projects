@@ -16,9 +16,9 @@ const Authintication = () => {
       <Routes>
         <Route exact path="/login" element={<Login />} />
         {/* <Route exact path="/" element={<Home />} /> */}
-        <ProtectedRoute exact path='/' element={<Home />} />
-        <ProtectedRoute exact path="/card" element={<Card />} />
-        <ProtectedRoute exact path="/products" element={<Products />} />
+        <Route exact path='/' element={<ProtectedRoute element={<Home />} />} />
+        <Route exact path="/card"  element={<ProtectedRoute element={<Card />} />} />
+        <Route exact path="/products" element={<ProtectedRoute element={<Products />} />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>

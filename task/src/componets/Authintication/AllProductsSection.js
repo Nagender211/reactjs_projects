@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
+import { TailSpin } from 'react-loader-spinner'; 
 
 import ProductCard from "./ProductCard";
 // import "./index.css";
@@ -7,6 +8,7 @@ import ProductCard from "./ProductCard";
 class AllProductsSection extends Component {
   state = {
     productsList: [],
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -15,7 +17,7 @@ class AllProductsSection extends Component {
 
   getProducts = async () => {
     const apiUrl = "https://apis.ccbp.in/products";
-    const jwtToken = Cookies.get("jwt_token");
+    const jwtToken = Cookies.get("jwt-token");
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -35,19 +37,26 @@ class AllProductsSection extends Component {
       }));
       this.setState({
         productsList: updatedData,
+        isLoading: false,
       });
     }
   };
 
   renderProductsList = () => {
     const { productsList } = this.state;
+    const { isLoading } = this.state;
+
     return (
       <div>
         <h1 className="products-list-heading">All Products</h1>
         <ul className="products-list">
-          {productsList.map((product) => (
-            <ProductCard productData={product} key={product.id} />
-          ))}
+          {isLoading ? (<TailSpin color="#00BFFF" height={50} width={50} />): (
+             productsList.map((product) => (
+              <ProductCard productData={product} key={product.id} />
+            ))
+            
+          )}
+         
         </ul>
       </div>
     );

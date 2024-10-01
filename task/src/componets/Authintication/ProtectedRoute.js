@@ -1,19 +1,20 @@
-import Cookies from 'js-cookie'
-import React from 'react'
-import { Navigate, Route } from 'react-router-dom';
-import Home from './Home';
+import Cookies from 'js-cookie';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = (props) => {
-    const jwtToken=Cookies.get('jwt-token');
-    if(jwtToken === undefined){
-        return <Navigate to='/login' />;
-    }
-  return (
-    <div>
-        <Route {...props}/>
-      
-    </div>
-  )
-}
+const ProtectedRoute = ({ element: Component }) => {
+  const jwtToken = Cookies.get('jwt-token');
 
-export default ProtectedRoute
+  // If there's no JWT token, redirect to the login page
+  if (!jwtToken) {
+    return <Navigate to="/login" />;
+  }
+
+  // If the user is authenticated, return the component they want to access
+  return Component;
+};
+
+export default ProtectedRoute;
+
+
+// export default ProtectedRoute
