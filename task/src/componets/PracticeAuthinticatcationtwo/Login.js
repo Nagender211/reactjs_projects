@@ -63,10 +63,10 @@ class Login extends Component{
         )
     }
     render() {
-        const {isLoggin}=this.state;
-        if(isLoggin){
-            return <Navigate to='/' />
-        }
+        // const {isLoggin}=this.state;
+        // if(isLoggin){
+        //     return <Navigate to='/' />
+        // }
         const jwtToken=Cookies.get('jwt-token');
         if(jwtToken !==undefined){
             return <Navigate to='/' />

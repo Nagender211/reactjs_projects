@@ -29,8 +29,9 @@ const Header = () => {
                 <Link to='/products'>
                 Product</Link>
             </li>
+            <button onClick={onLoggout}>Logout</button>
          </ul>
-         <button onClick={onLoggout}>Logout</button>
+        
       
     </div>
   )
