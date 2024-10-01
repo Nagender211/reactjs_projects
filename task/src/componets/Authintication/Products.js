@@ -1,11 +1,21 @@
-import React from 'react'
+import AllProductsSection from "./AllProductsSection";
 
-const Products = () => {
-  return (
-    <div>
-      <h1>Products</h1>
+import Header from "./Header";
+
+// import "./index.css";
+
+const Products = () => (
+  <>
+    <Header />
+    <div className="product-sections">
+      <AllProductsSection />
     </div>
-  )
-}
+  </>
+);
 
-export default Products
+export default Products;
+
+
+// ProdutsItems
+// export default Products
+
