@@ -723,8 +723,8 @@ class App extends Component{
           {/* <DebugClock /> */}
           {/* <DebugBlog /> */}
           {/* <DebugIpl /> */}
-          {/* <Authintication /> */}
-          <Registration />
+          <Authintication />
+          {/* <Registration /> */}
           {/* <div>
           <ul>
 
