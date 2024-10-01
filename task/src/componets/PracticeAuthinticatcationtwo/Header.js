@@ -21,9 +21,9 @@ const Header = () => {
                 </Link>
             </li>
             <li>
-                {/* <Link to='/card'>
+                <Link to='/card'>
                    Card
-                </Link> */}
+                </Link>
             </li>
             <li>
                 <Link to='/products'>
