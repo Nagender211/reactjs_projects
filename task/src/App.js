@@ -84,6 +84,7 @@ import Authintication from './componets/Authintication/Authintication';
 import Registration from './componets/Registration/Registration';
 import PraticeAuth from './componets/PraticeAuthincaion/PraticeAuth';
 import PraticeAuthinticationtwo from './componets/PracticeAuthinticatcationtwo/PraticeAuthinticationtwo';
+import EventRegistraion from './componets/EventRigister/EventRegistraion';
 // import ReusableBanners from './componets/Reusable Banners/ReusableBanners';
 // import UserProfile from './componets/UserProfile/UserProfile';
 
@@ -725,7 +726,8 @@ class App extends Component{
           {/* <DebugClock /> */}
           {/* <DebugBlog /> */}
           {/* <DebugIpl /> */}
-          <Authintication />
+          {/* <Authintication /> */}
+          <EventRegistraion />
           {/* <PraticeAuth /> */}
           {/* <PraticeAuthinticationtwo /> */}
           {/* <Registration /> */}
