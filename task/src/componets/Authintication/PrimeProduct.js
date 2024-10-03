@@ -59,6 +59,7 @@ class PrimeProduct extends Component {
   renderFailure = () => {
     return (
       <div>
+      <h1> Get prime Deals</h1>
         <img
           src="https://bgr.com/wp-content/uploads/2023/09/Prime-Big-Deal-Days-Sign.jpg?quality=82&strip=all"
           alt="prime deals"
