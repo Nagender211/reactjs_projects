@@ -118,7 +118,7 @@ class EventItem extends Component {
   renderRigister=()=>{
     return (
         <div>
-            {/* <h1>You not wet logged in pelase loggin or Register</h1> */}
+            
            <h1><button>REGISTER</button></h1> 
         </div>
     )

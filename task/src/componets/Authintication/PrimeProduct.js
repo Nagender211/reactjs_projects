@@ -108,6 +108,7 @@ class PrimeProduct extends Component {
       default:
         return null;
     }
+    
   }
 }
 
