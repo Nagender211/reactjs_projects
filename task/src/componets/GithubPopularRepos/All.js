@@ -27,10 +27,10 @@ const sortRepo = [
 
 class All extends Component {
     state = {
-        repositories: [], // Initialize repositories as an empty array
+        repositories: [], 
         activeRepo: sortRepo[0].id,
-        isLoading: true, // Add a loading state
-        error: null      // Add error state for better error handling
+        isLoading: true, 
+        error: null
     }
 
     componentDidMount() {
@@ -38,7 +38,7 @@ class All extends Component {
     }
 
     getApiData = async () => {
-        this.setState({ isLoading: true, error: null });  // Reset loading and error state before fetch
+        this.setState({ isLoading: true, error: null }); 
         const { activeRepo } = this.state;
         try {
             const response = await fetch(`https://apis.ccbp.in/popular-repos?language=${activeRepo}`);
