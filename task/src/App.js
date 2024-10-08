@@ -2,6 +2,8 @@
 import { Component } from 'react';
 import './App.css';
 
+import ProductsFiltersGroup from './componets/ProductsFiltersGroup/ProductsFiltersGroup'
+
 import DebugIpl from './componets/DebugIpl/DebugIpl'
 
 import FetchRoute from './componets/FetchRoute/FetchRoute';
@@ -732,7 +734,8 @@ class App extends Component{
           {/* <PraticeAuth /> */}
           {/* <PraticeAuthinticationtwo /> */}
           {/* <Registration /> */}
-          <GithubPopularRepos />
+          {/* <GithubPopularRepos /> */}
+          <ProductsFiltersGroup />
           {/* <div>
           <ul>
 
