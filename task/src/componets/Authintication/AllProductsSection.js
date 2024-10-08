@@ -3,12 +3,26 @@ import Cookies from "js-cookie";
 import { TailSpin } from 'react-loader-spinner'; 
 
 import ProductCard from "./ProductCard";
+import ProductSortHeader from "./ProductSortHeader";
 // import "./index.css";
+
+
+const sortOption=[
+  {
+    optionId: 'PRICE_HIGH',
+    displayText: 'Price (High-Low)',
+  },
+  {
+    optionId: 'PRICE_LOW',
+    displayText: 'Price (Low-High)',
+  },
+]
 
 class AllProductsSection extends Component {
   state = {
     productsList: [],
     isLoading: true,
+    activeOption: sortOption[0].optionId
   };
 
   componentDidMount() {
@@ -16,7 +30,8 @@ class AllProductsSection extends Component {
   }
 
   getProducts = async () => {
-    const apiUrl = "https://apis.ccbp.in/products";
+    const {activeOption}=this.state
+    const apiUrl = `https://apis.ccbp.in/products?sort_by=${activeOption}`;
     const jwtToken = Cookies.get("jwt-token");
     const options = {
       headers: {
@@ -41,14 +56,18 @@ class AllProductsSection extends Component {
       });
     }
   };
+  updateActive=activeOption=>{
+    this.setState({activeOption},this.getProducts)
+  }
 
   renderProductsList = () => {
     const { productsList } = this.state;
     const { isLoading } = this.state;
+    const {activeOption}=this.state
 
     return (
       <div>
-        <h1 className="products-list-heading">All Products</h1>
+        <ProductSortHeader sortOption={sortOption} activeOption={activeOption} updateActive={this.updateActive} />
         <ul className="products-list">
           {isLoading ? (<TailSpin color="#00BFFF" height={50} width={50} />): (
              productsList.map((product) => (
