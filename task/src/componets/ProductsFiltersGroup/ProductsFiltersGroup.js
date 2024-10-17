@@ -7,6 +7,7 @@ import Card from './Card'
 import NotFound from './NotFound'
 import Header from './Header'
 import ProtectedRoute from './ProtectedRoute'
+import AllProducts from './AllProducts'
 const ProductsFiltersGroup = () => {
   return (
     <div>
@@ -17,8 +18,8 @@ const ProductsFiltersGroup = () => {
         
             <Route exact path='/' element={<ProtectedRoute element={<Home />} />} />
           
-            <Route exact path='/products' element={<ProtectedRoute element={<Card />} />} />
-            <Route exact path='/card' element={<ProtectedRoute element={<Products />} />} />
+            <Route exact path='/products' element={<ProtectedRoute element={<AllProducts />} />} />
+            <Route exact path='/card' element={<ProtectedRoute element={<Card />} />} />
             <Route path='*' element={<NotFound />} />
         </Routes>
         </BrowserRouter>
